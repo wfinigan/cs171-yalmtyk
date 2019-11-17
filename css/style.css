@@ -1,0 +1,21 @@
+/* custom css rules */
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+}
+
+.area:hover {
+	opacity: .8;
+}
+
+div.tooltip {
+	text-align: center;
+	display: inline-block;
+	padding: 5px;
+	font: 12px sans-serif;
+	background: #CC6D6C;
+	border-radius: 8px;
+}
