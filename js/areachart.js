@@ -10,9 +10,9 @@ AreaChart = function(_parentElement, _data){
 AreaChart.prototype.initVis = function(){
     let vis = this;
 
-    vis.margin = { top: 40, right: 0, bottom: 60, left: 60 };
+    vis.margin = { top: 40, right: 60, bottom: 60, left: 60 };
 
-    vis.width = 600 - vis.margin.left - vis.margin.right,
+    vis.width = 700 - vis.margin.left - vis.margin.right,
         vis.height = 400 - vis.margin.top - vis.margin.bottom;
 
 
@@ -50,7 +50,7 @@ AreaChart.prototype.initVis = function(){
         .style("opacity", 0);
 
     vis.area = d3.area()
-        .curve(d3.curveCardinal)
+        // .curve(d3.curveCardinal)
         .x(function(d) { return vis.x(d.data.year); })
         .y0(function(d) { return vis.y(d[0]); })
         .y1(function(d) { return vis.y(d[1]); });
