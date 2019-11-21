@@ -1,13 +1,12 @@
-AreaChart = function(_parentElement, _data){
+StackedAreaChart = function(_parentElement, _data){
     this.parentElement = _parentElement;
     this.data = _data;
-    this.listData = [];
 
     this.initVis();
 };
 
 
-AreaChart.prototype.initVis = function(){
+StackedAreaChart.prototype.initVis = function(){
     let vis = this;
 
     vis.margin = { top: 40, right: 60, bottom: 60, left: 60 };
@@ -26,7 +25,8 @@ AreaChart.prototype.initVis = function(){
 
     // Scales and axes
     vis.x = d3.scaleTime()
-        .range([0, vis.width]);
+        .range([0, vis.width])
+        .domain(d3.extent(vis.data, function(d) { return parseDateYM(d.date); }));
 
     vis.y = d3.scaleLinear()
         .range([vis.height, 0]);
@@ -49,67 +49,69 @@ AreaChart.prototype.initVis = function(){
         .attr("class", "tooltip")
         .style("opacity", 0);
 
+
     vis.area = d3.area()
-        // .curve(d3.curveCardinal)
-        .x(function(d) { return vis.x(d.data.year); })
+    .curve(d3.curveCardinal)
+        .x(function(d) { return vis.x(parseDateYM(d.data.key)); })
         .y0(function(d) { return vis.y(d[0]); })
         .y1(function(d) { return vis.y(d[1]); });
 
+    vis.colorScale = d3.scaleOrdinal().range(['#fff5f0','#fee0d2','#fcbba1','#fc9272','#fb6a4a','#ef3b2c','#cb181d','#a50f15','#67000d'])
 
     vis.wrangleData();
 };
 
 
-AreaChart.prototype.wrangleData = function(){
+StackedAreaChart.prototype.wrangleData = function(){
     let vis = this;
 
-    vis.yearData = [];
-
-    vis.data.forEach(function (d) {
-        Object.keys(d).forEach(function (key) {
-            if (key.length == 4) {
-                vis.yearData.push({year: parseDate(key), offense_type: d.Offense_Group, value: +d[key]})
-            }
+    var nestedData = d3.nest()
+        .key(function(d) { return d.date;})
+        .key(function(d) { return d.OFFENSE_DESCRIPTION;})
+        .rollup(function (d) {
+            return d.length
         })
+        .entries(vis.data);
+
+
+    vis.dataCategories = []
+    nestedData[0].values.forEach(function (d) {
+        vis.dataCategories.push(d.key)
     });
 
-    vis.dataDict = {};
+    vis.colorScale.domain(vis.dataCategories)
 
-    vis.yearData.forEach(function (d) {
-        if (vis.dataDict[formatTime(d.year)] == undefined) {
-            vis.dataDict[formatTime(d.year)] = {};
-        }
-        vis.dataDict[formatTime(d.year)][d.offense_type] = d.value;
+    nestedData = nestedData.sort(function (a, b) {
+        return parseDateYM(a.key) - parseDateYM(b.key)
     });
-
-    d3.keys(vis.dataDict).forEach(function (key) {
-        var tempData = {};
-        tempData = vis.dataDict[key];
-        tempData['year'] = parseDate(key)
-        vis.listData.push(tempData)
-    });
-
-
-    vis.dataCategories = d3.keys(vis.listData[0]).filter(function(d){ return d != "year"; });
-
-    vis.x.domain(d3.extent(vis.listData, function (d) {
-        return d.year
-    }));
 
     vis.stack = d3.stack()
-        .keys(vis.dataCategories);
+        .keys(vis.dataCategories)
+        .value(function (d, key) {
 
-    vis.displayData = vis.stack(vis.listData);
+            var values = d.values.filter(function (obj) {
+                return obj.key == key
+            })
 
+            if (values.length ==  0) {
+                return 0
+            }
+            else {
+                return values[0].value
+            }
+        });
+
+    vis.stackedData = vis.stack(nestedData);
+
+    vis.displayData = vis.stackedData;
 
     vis.updateVis();
 };
 
-AreaChart.prototype.updateVis = function() {
+StackedAreaChart.prototype.updateVis = function() {
     var vis = this;
 
-    // Update domain
-    // Get the maximum of the multi-dimensional array or in other words, get the highest peak of the uppermost layer
+
     vis.y.domain([0, d3.max(vis.displayData, function(d) {
         return d3.max(d, function(e) {
             return e[1];
@@ -117,26 +119,13 @@ AreaChart.prototype.updateVis = function() {
     })
     ]);
 
+
 // Draw the layers
     var categories = vis.svg.selectAll(".area")
         .data(vis.displayData);
 
     categories.enter().append("path")
         .attr("class", "area")
-        .merge(categories)
-        .style("fill", function (d) {
-            if (d.key == "Drug Violation") {
-                return '#992423'
-            } else {
-                return '#ccc'
-            }
-
-
-        })
-        .attr("stroke" ,'#bbb')
-        .attr("d", function(d) {
-            return vis.area(d);
-        })
         .on("mouseover", function(d) {
             vis.toolDiv.transition()
                 .duration(200)
@@ -149,7 +138,24 @@ AreaChart.prototype.updateVis = function() {
             vis.toolDiv.transition()
                 .duration(500)
                 .style("opacity", 0);
-        });
+        })
+
+
+.merge(categories)
+        .transition()
+        .style("fill", function(d, i) {
+            return vis.colorScale(vis.dataCategories[i]);
+        })
+        .attr("d", function(d) {
+            return vis.area(d);
+        })
+
+
+
+
+    // TO-DO: Update tooltip text
+
+    categories.exit().remove();
 
 
     // Call axis functions with the new domain

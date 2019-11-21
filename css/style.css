@@ -25,7 +25,7 @@ div.tooltip {
     background-color: white;
     border-radius: 20px;
     width: fit-content;
-margin: auto;
+    margin: auto;
 }
 
 .intro p {
@@ -49,4 +49,23 @@ h2 {
     height: 500px;
     padding-top: 50px;
     object-fit: cover;
+}
+
+div {
+    background-color: white;
+}
+
+.small-mult-title {
+    font-weight: lighter;
+    font-size: 9pt;
+    color: #464a4e;
+}
+
+#small-mults svg:hover {
+    background-color: #ccc;
+    border-radius: 20px;
+}
+#small-mults div {
+    display: inline;
+    padding: 10px
 }
