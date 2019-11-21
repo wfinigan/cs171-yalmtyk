@@ -19,8 +19,9 @@ var parseDateYM = d3.timeParse("%m/%Y")
 
 var area_chart,
     stackedAreaChart,
-    smallMult,
     setFilter;
+
+var smallMults = [];
 
 
 d3.csv('data/StackedAreaChart.csv', function (data) {
@@ -49,8 +50,9 @@ d3.csv('data/drug_data_cats.csv', function (data) {
     });
 
     districts.forEach(function (d) {
-        new SmallMult('small-mult-' + d, dataDist[d], d)
+        smallMults.push(new SmallMult('small-mult-' + d, dataDist[d], d))
     });
+
 
     setFilter = function setFilter(distName) {
         stackedAreaChart.data = data.filter(function (row) {

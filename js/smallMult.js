@@ -12,8 +12,8 @@ SmallMult.prototype.initVis = function(){
 
     vis.margin = { top: 0, right: 0, bottom: 0, left: 0 };
 
-    vis.width = 200 - vis.margin.left - vis.margin.right,
-        vis.height = 200 - vis.margin.top - vis.margin.bottom;
+    vis.width = 150 - vis.margin.left - vis.margin.right,
+        vis.height = 150 - vis.margin.top - vis.margin.bottom;
 
 
 
