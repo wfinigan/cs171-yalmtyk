@@ -10,6 +10,10 @@
 <body>
     <div id="fullpage">
         <div class="section">
+                <div id="map"></div>
+        </div>
+
+        <div class="section">
             <div class="title">
                 <h1>Drug Crime in Boston</h1>
                 <img src="https://www.bostonmagazine.com/wp-content/uploads/sites/2/2016/09/police-lights-1.jpg" alt="">
@@ -34,12 +38,12 @@
         </div>
 
         <div class="section">
-            <div class="col">
-                <div class="row">
-
-                </div>
-                <div class="row">
+            <div class="row">
+                <div class="col">
                     <div id="stacked-area-chart"></div>
+                </div>
+                <div class="col">
+
                     <div id="small-mults"></div>
                 </div>
             </div>
@@ -47,7 +51,7 @@
 
         <div class="section">
             <div class="viz">
-                <h1>Visualization 2</h1>
+                <div id="timeline"></div>
             </div>
         </div>
         <div class="section">
@@ -77,13 +81,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/d3.min.js"></script>
+    <script src="js/queue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
 
     <!--navigation files (https://alvarotrigo.com/fullPage/examples/navigationV.html#firstPage)-->
     <script src="js/navigation.js"></script>
 
     <script src="js/stackedAreaChart.js"></script>
+    <script src="js/map.js"></script>
     <script src="js/smallMult.js"></script>
     <script src="js/areachart.js"></script>
+    <script src="js/timeline.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

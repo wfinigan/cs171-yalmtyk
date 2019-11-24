@@ -54,3 +54,5 @@ df_drugs_clean = df_drugs_clean[df_drugs_clean.YEAR < 2019]
 df_drugs_clean['date'] = df_drugs_clean.MONTH.astype(str) + '/' + df_drugs_clean.YEAR.astype(str)
 
 df_drugs_clean.to_csv('data/drug_data_cats.csv', index=False)
+
+list(df_drugs_clean.DISTRICT.unique())

@@ -29,10 +29,10 @@ d3.csv('data/StackedAreaChart.csv', function (data) {
 
 });
 
-d3.csv('data/drug_data_cats.csv', function (data) {
+function stackedAreaMults(data) {
     var districts = ['D4', 'E13', 'C11', 'D14', 'A1', 'B2', 'E5', 'B3', 'A7', 'C6', 'E18', 'A15'];
-    
-    var dataDist = {}
+
+    var dataDist = {};
 
     stackedAreaChart = new StackedAreaChart('stacked-area-chart', data);
 
@@ -42,6 +42,7 @@ d3.csv('data/drug_data_cats.csv', function (data) {
             .attr('id', 'small-mult-' + d)
     });
 
+    // set data for small multiples
     data.forEach(function(row) {
         if (dataDist[row.DISTRICT] != undefined) {
             dataDist[row.DISTRICT].push(row)
@@ -54,6 +55,7 @@ d3.csv('data/drug_data_cats.csv', function (data) {
     });
 
 
+    // helper function for small multiples
     setFilter = function setFilter(distName) {
         stackedAreaChart.data = data.filter(function (row) {
             return row.DISTRICT == distName
@@ -62,5 +64,36 @@ d3.csv('data/drug_data_cats.csv', function (data) {
         stackedAreaChart.wrangleData()
     }
 
-});
+    return stackedAreaChart
+
+
+};
+
+queue()
+    .defer(d3.json, 'data/Police_Districts.geojson')
+    .defer(d3.csv, "data/drug_data_cats.csv")
+    .await(function(error,dataGeo, dataDrugs) {
+        var areaChart = stackedAreaMults(dataDrugs);
+        new MapPlot('map', dataGeo, dataDrugs, areaChart.colorScale);
+        timeline = new Timeline("timeline");
+
+    });
+
+function brushed() {
+    // TO-DO: React to 'brushed' event
+    // Get the extent of the current brush
+    var selectionRange = d3.brushSelection(d3.select(".brush").node());
+    // Convert the extent into the corresponding domain values
+
+    var selectionDomain = selectionRange.map(timeline.x.invert);
+
+    bubblechart.x.domain(selectionDomain);
+
+
+    // areachart.stackedData =
+
+    bubblechart.wrangleData();
+
+}
+
 

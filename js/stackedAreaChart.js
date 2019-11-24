@@ -9,11 +9,12 @@ StackedAreaChart = function(_parentElement, _data){
 StackedAreaChart.prototype.initVis = function(){
     let vis = this;
 
-    vis.margin = { top: 40, right: 60, bottom: 60, left: 60 };
+    vis.margin = { top: 40, right: 0, bottom: 60, left: 350 };
 
-    vis.width = 700 - vis.margin.left - vis.margin.right,
+    vis.width = 800 - vis.margin.left - vis.margin.right,
         vis.height = 400 - vis.margin.top - vis.margin.bottom;
 
+    vis.first = false;
 
 
     // SVG drawing area
@@ -56,7 +57,7 @@ StackedAreaChart.prototype.initVis = function(){
         .y0(function(d) { return vis.y(d[0]); })
         .y1(function(d) { return vis.y(d[1]); });
 
-    vis.colorScale = d3.scaleOrdinal().range(['#fff5f0','#fee0d2','#fcbba1','#fc9272','#fb6a4a','#ef3b2c','#cb181d','#a50f15','#67000d'])
+    vis.colorScale = d3.scaleOrdinal().range(['#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6'])
 
     vis.wrangleData();
 };
@@ -79,7 +80,11 @@ StackedAreaChart.prototype.wrangleData = function(){
         vis.dataCategories.push(d.key)
     });
 
-    vis.colorScale.domain(vis.dataCategories)
+    if (vis.first) {
+        vis.colorScale.domain(vis.dataCategories.sort())
+    };
+
+
 
     nestedData = nestedData.sort(function (a, b) {
         return parseDateYM(a.key) - parseDateYM(b.key)
@@ -141,25 +146,47 @@ StackedAreaChart.prototype.updateVis = function() {
         })
 
 
-.merge(categories)
+        .merge(categories)
         .transition()
-        .style("fill", function(d, i) {
-            return vis.colorScale(vis.dataCategories[i]);
+        .style("fill", function(d) {
+            return vis.colorScale(d.key);
         })
         .attr("d", function(d) {
             return vis.area(d);
+        });
+
+    categories.exit().remove()
+
+    var legendBoxWidth = 20;
+    var buffer = 10;
+
+    vis.svg.selectAll('rect')
+        .data(vis.colorScale.domain())
+        .enter()
+        .append('rect')
+        .attr('width', legendBoxWidth)
+        .attr('height', legendBoxWidth)
+        .attr('fill', function (d) {
+            return vis.colorScale(d)
         })
+        .attr('x', -300)
+        .attr('y', function(d, index) { return (legendBoxWidth + buffer) * index })
 
-
-
-
-    // TO-DO: Update tooltip text
-
-    categories.exit().remove();
+    vis.svg.selectAll('.legendLabel')
+        .data(vis.colorScale.domain())
+        .enter()
+        .append('text')
+        .text(function (d) {
+            return toTitleCase(d)
+        })
+        .attr('x', -275)
+        .attr('y', function(d, index) { return 15 + (legendBoxWidth + buffer) * index })
+        .attr('class', 'legendLabel')
 
 
     // Call axis functions with the new domain
     vis.svg.select(".x-axis").call(vis.xAxis);
     vis.svg.select(".y-axis").call(vis.yAxis);
 
+    vis.first = false;
 }

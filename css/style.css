@@ -26,6 +26,7 @@ div.tooltip {
     border-radius: 20px;
     width: fit-content;
     margin: auto;
+
 }
 
 .intro p {
@@ -68,4 +69,62 @@ div {
 #small-mults div {
     display: inline;
     padding: 10px
+}
+
+#map path,
+#map line {
+    fill: white;
+    stroke: #000;
+}
+
+.crimeDot {
+    opacity: .6;
+    border: #ccc;
+    border-style: solid;
+}
+
+.legendLabel {
+    font-weight: lighter;
+    font-size: 8pt;
+}
+
+
+#small-mults::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+#small-mults::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+#small-mults::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+
+#small-mults::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white; /* should match background, can't be transparent */
+    background-color: rgba(0, 0, 0, .5);
+}
+
+#small-mults {
+    overflow-y: auto;
+    border: 1px solid black;
+    height: 600px;
+    width: 100%;
+    line-height: 1em;
+    padding: 15px;
+}
+
+#stacked-area-chart
+{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#stacked-area-chart svg
+{
+    margin: 0 auto;
+    display: block;
 }
