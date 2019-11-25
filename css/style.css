@@ -12,6 +12,10 @@ h1 {
 	opacity: .8;
 }
 
+#fp-nav {
+    background: none;
+}
+
 div.tooltip {
 	text-align: center;
 	display: inline-block;
@@ -34,7 +38,6 @@ div.tooltip {
     width: 80%;
     text-align: left;
     font-family:"Courier New";
-    padding-top: 20px;
 }
 
 h2 {
@@ -46,10 +49,7 @@ h2 {
 }
 
 .title img {
-    width: 100%;
-    height: 500px;
-    padding-top: 50px;
-    object-fit: cover;
+    height: 1000px;
 }
 
 div {
