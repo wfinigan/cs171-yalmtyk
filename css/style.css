@@ -62,13 +62,17 @@ div {
     color: #464a4e;
 }
 
+#small-mults svg {
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+}
+
 #small-mults svg:hover {
     background-color: #ccc;
-    border-radius: 20px;
 }
 #small-mults div {
     display: inline;
-    padding: 10px
 }
 
 #map path,
@@ -78,9 +82,8 @@ div {
 }
 
 .crimeDot {
-    opacity: .6;
-    border: #ccc;
-    border-style: solid;
+    stroke: #ccc;
+    stroke-opacity: .6;
 }
 
 .legendLabel {
@@ -109,11 +112,18 @@ div {
 
 #small-mults {
     overflow-y: auto;
-    border: 1px solid black;
+    border: 1px solid #ccc;
+    border-radius: 20px;
     height: 600px;
-    width: 100%;
+    width: 80%;
     line-height: 1em;
     padding: 15px;
+    box-shadow:  -1px 1px #ccc,
+    -2px 2px #ccc,
+    -3px 3px #ccc,
+    -4px 4px #ccc,
+    -5px 5px #ccc;
+
 }
 
 #stacked-area-chart
@@ -127,4 +137,17 @@ div {
 {
     margin: 0 auto;
     display: block;
+}
+
+#all-mults {
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+}
+
+#all-mults:hover {
+    background-color: #ccc;
+    font-size: 18pt;
+    padding: 20px;
+
 }

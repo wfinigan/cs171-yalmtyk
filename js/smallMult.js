@@ -10,7 +10,7 @@ SmallMult = function(_parentElement, _data, _distName){
 SmallMult.prototype.initVis = function(){
     let vis = this;
 
-    vis.margin = { top: 0, right: 0, bottom: 0, left: 0 };
+    vis.margin = { top: 30, right: 10, bottom: 10, left: 10 };
 
     vis.width = 150 - vis.margin.left - vis.margin.right,
         vis.height = 150 - vis.margin.top - vis.margin.bottom;
@@ -21,6 +21,7 @@ SmallMult.prototype.initVis = function(){
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
         .attr("width", vis.width + vis.margin.left + vis.margin.right)
         .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
+        .attr('class', 'smallMult')
         .append("g")
         .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")")
 
@@ -29,10 +30,9 @@ SmallMult.prototype.initVis = function(){
             setFilter(vis.distName)
         });
 
-
     vis.svg.append('text')
-        .attr('x', -20 + vis.width / 2)
-        .attr('y', 10)
+        .attr('x', -40 + vis.width / 2)
+        .attr('y', -20)
         .attr('class', 'small-mult-title')
         .text('District: ' + vis.distName)
 
@@ -47,6 +47,7 @@ SmallMult.prototype.initVis = function(){
         .curve(d3.curveCardinal)
         .x(function(d) { return vis.x(parseDateYM(d.key)); })
         .y(function(d) { return vis.y(d.value); });
+
 
     vis.wrangleData();
 };

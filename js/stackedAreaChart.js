@@ -57,7 +57,7 @@ StackedAreaChart.prototype.initVis = function(){
         .y0(function(d) { return vis.y(d[0]); })
         .y1(function(d) { return vis.y(d[1]); });
 
-    vis.colorScale = d3.scaleOrdinal().range(['#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6'])
+    vis.colorScale = d3.scaleOrdinal().range(['#fff5f0','#fee0d2','#fcbba1','#fc9272','#fb6a4a','#ef3b2c','#cb181d','#a50f15','#67000d'].reverse())
 
     vis.wrangleData();
 };
@@ -91,7 +91,7 @@ StackedAreaChart.prototype.wrangleData = function(){
     });
 
     vis.stack = d3.stack()
-        .keys(vis.dataCategories)
+        .keys(vis.dataCategories.sort())
         .value(function (d, key) {
 
             var values = d.values.filter(function (obj) {

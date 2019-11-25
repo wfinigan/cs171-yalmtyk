@@ -54,6 +54,13 @@ function stackedAreaMults(data) {
         smallMults.push(new SmallMult('small-mult-' + d, dataDist[d], d))
     });
 
+    d3.select('#all-mults')
+        .append('p')
+        .text('All districts')
+        .on('click', function() {
+            stackedAreaChart.data = data
+            stackedAreaChart.wrangleData()
+        });
 
     // helper function for small multiples
     setFilter = function setFilter(distName) {
