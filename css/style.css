@@ -1,17 +1,14 @@
-/* custom css rules */
-@import url(font-awesome.min.css);
-@import url("https://fonts.googleapis.com/css?family=Scope+One|Trocchi");
-
-
-body {
-    font-family: "Font Awesome 5 Brands","Font Awesome 5 Free";
-}
-
 h1 {
-    font-family: "Font Awesome 5 Brands","Font Awesome 5 Free";
-    font-weight: 900;
+
+    font-family: 'Cormorant Garamond', serif;
     position: absolute;
     color: white;
+    width: 50%;
+}
+
+.section {
+    overflow: hidden;
+    margin-top: 20px;
 }
 
 .area:hover {
@@ -51,11 +48,12 @@ h2 {
 }
 
 .title {
-    overflow:hidden
+    overflow: hidden;
+    height: inherit;
 }
 
 .title img {
-    height: 1000px;
+    width: 100%;
 }
 
 div {
