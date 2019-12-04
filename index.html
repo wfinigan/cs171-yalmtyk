@@ -6,62 +6,226 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400|Thasadith" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 <body>
-    <div id="fullpage">
-        <div class="section">
-            <div class="title">
-                <img src="https://www.bostonmagazine.com/wp-content/uploads/sites/2/2016/09/police-lights-1.jpg" alt="">
+<div id="fullpage">
+    <div class="section">
+        <div class="title">
+            <h1>The Impact of the Legalization of Marijuana on Boston Drug Incident Reports</h1>
+            <img src="https://www.bostonmagazine.com/wp-content/uploads/sites/2/2016/09/police-lights-1.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="viz">
+            <p class="intro_text">In November of 2016, Massachusetts voted to legalize the drug marijuana for
+                recreational use. In the months since then, cities across the state have begun to implement new policies
+                towards regularizing the use of the drug. Using data from the Boston Police Department our team is
+                striving to visualize and explain the story of how law enforcement has responded to these changes when
+                it comes to policing the use of Marijuana in Boston.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="viz">
+            <div class="intro">
+                <div class="container">
+                    <h1> The Legalization of Marijuana in Massachusetts: A Brief History</h1>
+                </div>
+            </div>
+            <div class="timeline">
+                <ol>
+                    <li>
+                        <div>
+                            <time>November 8, 2016<p id="first"></p><a id="l1" href="https://www.nytimes.com/elections/2016/results/massachusetts-ballot-measure-4-legalize-marijuana"></a></time>
+                            <p class="btn" id="nov8"> + </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <time>December 15, 2016<p id="second"></p></time>
+                            <p class="btn" id="dec15"> + </p>
+                        </div>
+                    </li>
+                    <li id="march">
+                        <div>
+                            <time>March 6, 2018<p id="third"></p></time>
+                            <p class="btn" id="mar6"> + </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <time>April 2, 2018<p id="fourth"></p></time>
+                            <p class="btn" id="april2"> + </p>
+                        </div>
+                    </li>
+                    <li id="june">
+                        <div>
+                            <time>June 28, 2018<p id="fifth"></p></time>
+                            <p class="btn" id="june28"> + </p>
+                        </div>
+                    </li>
+                    <li id="october">
+                        <div>
+                            <time>October 4, 2018<p id="sixth"></p></time>
+                            <p class="btn" id="oct4"> + </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <time>November 20, 2018<p id="seventh"></p></time>
+                            <p class="btn" id="nov20"> + </p>
+                        </div>
+                    </li>
+                    <li id="september">
+                        <div>
+                            <time>September 24, 2019<p id="eighth"></p></time>
+                            <p class="btn" id="sept24"> + </p>
+                        </div>
+                    </li>
+                    <li></li>
+                </ol>
+<!--CHANGED!!!!-->
+                <div class="arrows">
+                    <button class="arrow arrow__prev disabled" disabled>
+                        <img src="https://www.iconsdb.com/icons/preview/color/8B0000/left-round-xxl.png" alt="prev timeline arrow">
+                    </button>
+                    <button class="arrow arrow__next">
+                        <img src="https://www.iconsdb.com/icons/preview/color/8B0000/right-round-xxl.png" alt="next timeline arrow">
+                    </button>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="section">
-                <div id="map"></div>
-        </div>
-        <div class="section">
+    <div class="section">
+        <h2 class="storyh">Drug Violations in Boston by Location</h2>
+        <h2>(Click the legend to filter by violation)</h2>
+        <div id="map"></div>
+    </div>
+
+    <div class="section">
+        <div class="viz">
+            <h2 class="storyh">Marijuana Arrests by District</h2>
             <div class="row">
                 <div class="col">
-                    <div id="stacked-area-chart"></div>
+                    <p class='map_text'>The map visualization shows that the number of arrests for Marijuana (Class D)
+                        is relatively lower compared to other drug offenses over our timeframe of August 2015 through
+                        2018. One district that we see this is especially prevalent is Downtown Boston or District A-1,
+                        which is displayed on the image to the left.</p>
+                    <p class='map_text'> Kenneth Fong, district police captain of A-1 and A-15, spoke on the topic in an
+                        interview with the Boston Globe in July 2018. Fong said the department had made it a point to
+                        write fewer citations for marijuana and to focus more on educating people on the changes in the
+                        law.</p>
+                    <p class='map_text'>“We’re not looking to hit people with fines for smoking pot,” he told the
+                        Globe’s Mark Asenault. “The laws are relatively new. People see a headline that says pot is
+                        legal now and they may not realize” public consumption is still prohibited.
+                    </p>
                 </div>
                 <div class="col">
+                    <figure>
+                        <img src="img/districts.png">
+                        <figcaption>District A-1, Downtown Boston</figcaption>
+                    </figure>
+                </div>
 
-                    <div id="small-mults"><div id="all-mults"></div></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="row">
+            <div class="col">
+                <h2 class="storyh">Drug Violations by Type and District</h2>
+                <h2>(Click the legend to filter by violation)</h2>
+                <div id="stacked-area-chart"></div>
+            </div>
+            <div class="col">
+
+                <div id="small-mults">
+                    <div id="all-mults"></div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="section">
-            <div class="viz">
-                <div id="timeline"></div>
+    <div class="section">
+        <div class="viz">
+            <div>
+
+                <figure id="headlines">
+                    <img src="img/headlines.png" width="680px" height="580px">
+                    <figcaption>Arrests are still happening for significant Class D drug violations</figcaption>
+                </figure>
             </div>
         </div>
-        <div class="section">
-            <div class="viz">
-                <div id="clock"></div>
-            </div>
+    </div>
+
+    <div class="section">
+        <div class="viz">
+            <h2 class='storyh'>Not Much Change?</h2>
+            <p class='intro_text'>On November 20, 2019, one year after the first legal sale of medical marijuana in
+                Massachusetts, the Boston Globe ran an article trying to measure the change that had occurred within
+                those 365 days. The Globe interviewed John Carmichael, the police chief of Walpole, a nearby suburb of
+                Boston, to gauge the impact of Marijuana legalization on drug policing in Massachusetts. “Some of the
+                cruxes of legalization really haven’t panned out for us, public safety-wise,” Carmichael told the Globe.
+                “Reducing the burden on the criminal justice system, reducing arrests and people involved in marijuana
+                crime, protecting youths from diversion or from access to marijuana products, OUI [impaired driving]
+                hasn’t been resolved yet — those issues that really supported the purpose of legalization haven’t panned
+                out yet, and hopefully they will. In five years, 10 years from now, maybe it will.”</p>
         </div>
+    </div>
 
+    <div class="section">
+        <div class="viz">
+            <h2 class="storyh">Drug Violations by Year and Time of Day</h2>
+            <h2>(Mouse over to see number of violations)</h2>
+            <div id="clock"></div>
+        </div>
+    </div>
 
+    <div class="section">
+        <div class="viz">
+            <h2 class='storyh'>Decrease in Class D Possession Violations</h2>
+            <p class='intro_text'> Looking at the clock visualization above we see significant changes over the course
+                of our data. We see a large decrease in number of violations from 2016 to 2017 and 2018. The lightness
+                of 2015 is a bit misleading as that data is from August to December of 2015, less than half the year.
+                The total number of Class D Drug violations decreased from 677 in 2016 to 316 in 2017 and 344 in 2018.
+                The majority of this decrease has occurred at the possession level rather than the intent to distribute
+                level. This is illustrated in the clock visualization as conventional wisdom dictates that the majority
+                of possession charges would occur later in the afternoon/evening while more serious intent to distribute
+                charges could occur at any time.
+            </p>
+        </div>
     </div>
 
 
+</div>
 
-        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/d3.min.js"></script>
-    <script src="js/queue.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
 
-    <!--navigation files (https://alvarotrigo.com/fullPage/examples/navigationV.html#firstPage)-->
-    <script src="js/navigation.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/stackedAreaChart.js"></script>
-    <script src="js/map.js"></script>
-    <script src="js/smallMult.js"></script>
-    <script src="js/areachart.js"></script>
-    <script src="js/timeline.js"></script>
-    <script src="js/clock.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/d3.min.js"></script>
+<script src="js/queue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+
+<!--navigation files (https://alvarotrigo.com/fullPage/examples/navigationV.html#firstPage)-->
+<script src="js/navigation.js"></script>
+<script src="js/main.js"></script>
+<script src="js/stackedAreaChart.js"></script>
+<script src="js/map.js"></script>
+<script src="js/smallMult.js"></script>
+<script src="js/areachart.js"></script>
+<script src="js/timeline.js"></script>
+<script src="js/clock.js"></script>
+<script src="https://hammerjs.github.io/dist/hammer.js"></script>
 
 </body>
 </html>

@@ -2,115 +2,115 @@
 //2015 by hour of day
 //(ignore "count")
 var dataset1 = [
-    { count: 25, num: 125},
-    { count: 25, num: 42 },
-    { count: 25, num: 48 },
-    { count: 25, num: 24 },
-    { count: 25, num: 12 },
+    { count: 25, num: 6},
+    { count: 25, num: 4 },
+    { count: 25, num: 6 },
+    { count: 25, num: 1 },
+    { count: 25, num: 4 },
+    { count: 25, num: 1 },
+    { count: 25, num: 2 },
+    { count: 25, num: 2 },
     { count: 25, num: 11 },
-    { count: 25, num: 29 },
-    { count: 25, num: 68 },
-    { count: 25, num: 58 },
-    { count: 25, num: 72 },
-    { count: 25, num: 107 },
-    { count: 25, num: 119 },
-    { count: 25, num: 182 },
-    { count: 25, num: 183 },
-    { count: 25, num: 203 },
-    { count: 25, num: 208 },
-    { count: 25, num: 339 },
-    { count: 25 , num: 404 },
-    { count: 25, num: 428 },
-    { count: 25, num: 285 },
-    { count: 25, num: 178 },
-    { count: 25, num: 101 },
-    { count: 25, num: 57 },
-    { count: 25, num: 31 }
+    { count: 25, num: 7 },
+    { count: 25, num: 9 },
+    { count: 25, num: 9 },
+    { count: 25, num: 15 },
+    { count: 25, num: 21 },
+    { count: 25, num: 19 },
+    { count: 25, num: 22 },
+    { count: 25, num: 27 },
+    { count: 25 , num: 29 },
+    { count: 25, num: 31 },
+    { count: 25, num: 35 },
+    { count: 25, num: 13 },
+    { count: 25, num: 11 },
+    { count: 25, num: 8 },
+    { count: 25, num: 3 }
 ];
 
 //2016 by hour of day
 var dataset2 = [
-    { count: 25, num: 156 },
-    { count: 25, num: 69 },
-    { count: 25, num: 43 },
-    { count: 25, num: 22 },
-    { count: 25, num: 37 },
+    { count: 25, num: 15 },
     { count: 25, num: 10 },
-    { count: 25, num: 46 },
-    { count: 25, num: 40 },
+    { count: 25, num: 3 },
+    { count: 25, num: 5 },
+    { count: 25, num: 6 },
+    { count: 25, num: 1 },
+    { count: 25, num: 3 },
+    { count: 25, num: 3 },
+    { count: 25, num: 19 },
+    { count: 25, num: 15 },
+    { count: 25, num: 29 },
+    { count: 25, num: 28 },
+    { count: 25, num: 31 },
+    { count: 25, num: 48 },
+    { count: 25, num: 29 },
+    { count: 25, num: 43 },
+    { count: 25, num: 54 },
     { count: 25, num: 83 },
-    { count: 25, num: 91 },
-    { count: 25, num: 160 },
-    { count: 25, num: 223 },
-    { count: 25, num: 227 },
-    { count: 25, num: 296 },
-    { count: 25, num: 302 },
-    { count: 25, num: 279 },
-    { count: 25, num: 483 },
-    { count: 25, num: 628 },
-    { count: 25, num: 592 },
-    { count: 25, num: 449 },
-    { count: 25, num: 263 },
-    { count: 25, num: 108 },
-    { count: 25, num: 94 },
-    { count: 25, num: 39 }
+    { count: 25, num: 96 },
+    { count: 25, num: 81 },
+    { count: 25, num: 39 },
+    { count: 25, num: 19 },
+    { count: 25, num: 11 },
+    { count: 25, num: 6 }
 ];
 
 //2017 by hour of day
 var dataset3 = [
-    { count: 25, num: 101 },
-    { count: 25, num: 62 },
-    { count: 25, num: 54 },
-    { count: 25, num: 16 },
-    { count: 25, num: 27 },
+    { count: 25, num: 4 },
+    { count: 25, num: 9 },
+    { count: 25, num: 5 },
+    { count: 25, num: 0 },
+    { count: 25, num: 2 },
+    { count: 25, num: 2 },
+    { count: 25, num: 4 },
+    { count: 25, num: 3 },
+    { count: 25, num: 2 },
+    { count: 25, num: 9 },
+    { count: 25, num: 15 },
     { count: 25, num: 11 },
-    { count: 25, num: 37 },
-    { count: 25, num: 58 },
-    { count: 25, num: 96 },
-    { count: 25, num: 94 },
-    { count: 25, num: 168 },
-    { count: 25, num: 205 },
-    { count: 25, num: 195 },
-    { count: 25, num: 229 },
-    { count: 25, num: 240 },
-    { count: 25, num: 271 },
-    { count: 25, num: 435 },
-    { count: 25, num: 523 },
-    { count: 25, num: 484 },
-    { count: 25, num: 345 },
-    { count: 25, num: 226 },
-    { count: 25, num: 122 },
-    { count: 25, num: 65 },
-    { count: 25, num: 41 }
+    { count: 25, num: 12 },
+    { count: 25, num: 30 },
+    { count: 25, num: 17 },
+    { count: 25, num: 19 },
+    { count: 25, num: 29 },
+    { count: 25, num: 49 },
+    { count: 25, num: 32 },
+    { count: 25, num: 33 },
+    { count: 25, num: 10 },
+    { count: 25, num: 9 },
+    { count: 25, num: 6 },
+    { count: 25, num: 4 }
 ];
 var hours = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
 
 //2018 by hour of day
 var dataset4 = [
-    { count: 25, num: 107 },
-    { count: 25, num: 82 },
-    { count: 25, num: 39 },
-    { count: 25, num: 26 },
-    { count: 25, num: 40},
+    { count: 25, num: 6 },
+    { count: 25, num: 11 },
+    { count: 25, num: 4 },
+    { count: 25, num: 3 },
+    { count: 25, num: 5},
+    { count: 25, num: 1 },
+    { count: 25, num: 1 },
+    { count: 25, num: 3 },
+    { count: 25, num: 9 },
+    { count: 25, num: 15 },
+    { count: 25, num: 13 },
     { count: 25, num: 17 },
-    { count: 25, num: 47 },
+    { count: 25, num: 28 },
+    { count: 25, num: 18 },
+    { count: 25, num: 22 },
+    { count: 25, num: 20 },
+    { count: 25, num: 30 },
+    { count: 25, num: 39 },
     { count: 25, num: 34 },
-    { count: 25, num: 56 },
-    { count: 25, num: 89 },
-    { count: 25, num: 132 },
-    { count: 25, num: 147 },
-    { count: 25, num: 238 },
-    { count: 25, num: 254 },
-    { count: 25, num: 267 },
-    { count: 25, num: 254 },
-    { count: 25, num: 329 },
-    { count: 25, num: 427 },
-    { count: 25, num: 488 },
-    { count: 25, num: 389 },
-    { count: 25, num: 271 },
-    { count: 25, num: 113 },
-    { count: 25, num: 51 },
-    { count: 25, num: 38 }
+    { count: 25, num: 30 },
+    { count: 25, num: 22 },
+    { count: 25, num: 3 },
+    { count: 25, num: 6 },
+    { count: 25, num: 6 }
 ];
 var margin = {top: 50, right: 50, bottom: 50, left: 50};
 
@@ -127,7 +127,7 @@ var radius4 = radius3/2 + 10;
 
 var colorScale = d3.scaleQuantize()
     .range([ "#E3F2FD","#BBDEFB", "#90CAF9", "#1976D2","#0D47A1","#1A237E" ])
-    .domain([-50,650])
+    .domain([0,100])
 
 var div = d3.select("#clock").append("div")
     .attr("class", "tooltip")
@@ -497,7 +497,7 @@ key.append("rect")
 
 var y = d3.scaleLinear()
     .range([-20, h-10])
-    .domain([650, -50]);
+    .domain([100, 0]);
 
 var yAxis = d3.axisRight()
     .scale(y)

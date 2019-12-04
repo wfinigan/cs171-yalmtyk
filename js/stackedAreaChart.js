@@ -1,7 +1,6 @@
 StackedAreaChart = function(_parentElement, _data){
     this.parentElement = _parentElement;
-    this.dataDrugsFull = _data;
-    this.dataDrugsFiltered = _data;
+    this.data = _data;
 
     this.initVis();
 };
@@ -15,7 +14,7 @@ StackedAreaChart.prototype.initVis = function(){
     vis.width = 800 - vis.margin.left - vis.margin.right,
         vis.height = 400 - vis.margin.top - vis.margin.bottom;
 
-    vis.first = true;
+    vis.first = false;
 
 
     // SVG drawing area
@@ -28,7 +27,7 @@ StackedAreaChart.prototype.initVis = function(){
     // Scales and axes
     vis.x = d3.scaleTime()
         .range([0, vis.width])
-        .domain(d3.extent(vis.dataDrugsFiltered, function(d) { return parseDateYM(d.date); }));
+        .domain(d3.extent(vis.data, function(d) { return parseDateYM(d.date); }));
 
     vis.y = d3.scaleLinear()
         .range([vis.height, 0]);
@@ -46,6 +45,7 @@ StackedAreaChart.prototype.initVis = function(){
     vis.svg.append("g")
         .attr("class", "y-axis axis");
 
+
 // Define the div for the tooltip
     vis.toolDiv = d3.select("body").append("div")
         .attr("class", "tooltip")
@@ -53,7 +53,7 @@ StackedAreaChart.prototype.initVis = function(){
 
 
     vis.area = d3.area()
-    .curve(d3.curveBasis)
+    .curve(d3.curveCardinal)
         .x(function(d) { return vis.x(parseDateYM(d.data.key)); })
         .y0(function(d) { return vis.y(d[0]); })
         .y1(function(d) { return vis.y(d[1]); });
@@ -73,7 +73,7 @@ StackedAreaChart.prototype.wrangleData = function(){
         .rollup(function (d) {
             return d.length
         })
-        .entries(vis.dataDrugsFiltered);
+        .entries(vis.data);
 
 
     vis.dataCategories = []
@@ -118,15 +118,12 @@ StackedAreaChart.prototype.updateVis = function() {
     var vis = this;
 
 
-    if (vis.first) {
-        vis.y.domain([0, d3.max(vis.displayData, function(d) {
-            return d3.max(d, function(e) {
-                return e[1];
-            });
-        })
-        ]);
-
-    }
+    vis.y.domain([0, d3.max(vis.displayData, function(d) {
+        return d3.max(d, function(e) {
+            return e[1];
+        });
+    })
+    ]);
 
 
 // Draw the layers
@@ -152,7 +149,6 @@ StackedAreaChart.prototype.updateVis = function() {
 
         .merge(categories)
         .transition()
-        .duration(400)
         .style("fill", function(d) {
             return vis.colorScale(d.key);
         })
@@ -187,23 +183,10 @@ StackedAreaChart.prototype.updateVis = function() {
         .attr('x', -275)
         .attr('y', function(d, index) { return 15 + (legendBoxWidth + buffer) * index })
         .attr('class', 'legendLabel')
-        .attr('class', 'legendLabel')
-        .on('click', function (d) {
-            filter(d, vis)
-        })
-
 
     // Call axis functions with the new domain
     vis.svg.select(".x-axis").call(vis.xAxis);
     vis.svg.select(".y-axis").call(vis.yAxis);
 
     vis.first = false;
-}
-
-function filter(crimeType, vis) {
-    vis.dataDrugsFiltered = vis.dataDrugsFull.filter(function (d) {
-        return (d.OFFENSE_DESCRIPTION == crimeType)
-    });
-
-    vis.wrangleData()
 }

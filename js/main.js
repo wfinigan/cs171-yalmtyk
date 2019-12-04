@@ -82,31 +82,11 @@ queue()
     .await(function(error,dataGeo, dataDrugs) {
         var areaChart = stackedAreaMults(dataDrugs);
         new MapPlot('map', dataGeo, dataDrugs, areaChart.colorScale);
-        timeline = new Timeline("timeline");
+        // (5) Bind event handler
+// when 'selectionChanged' is triggered, specified function is called
+
 
     });
 
-function brushed() {
-    // TO-DO: React to 'brushed' event
-    // Get the extent of the current brush
-    var selectionRange = d3.brushSelection(d3.select(".brush").node());
-    // Convert the extent into the corresponding domain values
-
-    var selectionDomain = selectionRange.map(timeline.x.invert);
-
-    bubblechart.x.domain(selectionDomain);
 
 
-    // areachart.stackedData =
-
-    bubblechart.wrangleData();
-
-}
-
-function filter(crimeType, vis) {
-    vis.dataDrugs = vis.dataDrugsFull.filter(function (d) {
-        return (d.OFFENSE_DESCRIPTION == crimeType)
-    });
-
-    vis.wrangleData()
-}
