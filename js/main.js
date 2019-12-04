@@ -103,4 +103,10 @@ function brushed() {
 
 }
 
+function filter(crimeType, vis) {
+    vis.dataDrugs = vis.dataDrugsFull.filter(function (d) {
+        return (d.OFFENSE_DESCRIPTION == crimeType)
+    });
 
+    vis.wrangleData()
+}
