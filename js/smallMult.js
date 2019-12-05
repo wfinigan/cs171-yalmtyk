@@ -42,7 +42,7 @@ SmallMult.prototype.initVis = function(){
         .range([vis.height, 0]);
 
     vis.valueline = d3.line()
-        .curve(d3.curveCardinal)
+        .curve(d3.curveBasis)
         .x(function(d) { return vis.x(parseDateYM(d.key)); })
         .y(function(d) { return vis.y(d.value); });
 

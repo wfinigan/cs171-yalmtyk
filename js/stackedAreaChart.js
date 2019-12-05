@@ -53,7 +53,7 @@ StackedAreaChart.prototype.initVis = function(){
 
 
     vis.area = d3.area()
-    .curve(d3.curveCardinal)
+    .curve(d3.curveBasis)
         .x(function(d) { return vis.x(parseDateYM(d.data.key)); })
         .y0(function(d) { return vis.y(d[0]); })
         .y1(function(d) { return vis.y(d[1]); });

@@ -29,7 +29,7 @@ def skim(keep):
         if item in keep:
             return item
         else:
-            return 'DRUGS - OTHER'
+            return 'OTHER'
 
     return skim_item
 
@@ -39,10 +39,16 @@ df_drugs_clean = df_drugs.copy()
 df_drugs_clean.OFFENSE_DESCRIPTION = df_drugs.OFFENSE_DESCRIPTION.apply(consolodate)
 
 # Get top vals
-top_vals = df_drugs_clean.OFFENSE_DESCRIPTION.value_counts()[:9]
+# top_vals = df_drugs_clean.OFFENSE_DESCRIPTION.value_counts()[:9]
+
+
+classes = []
+class_letters = ['A', 'B', 'C', 'D', 'E']
+for c in class_letters:
+    classes.append(f'CLASS {c}')
 
 # Skim top categories
-df_drugs_clean.OFFENSE_DESCRIPTION = df_drugs_clean.OFFENSE_DESCRIPTION.apply(skim(top_vals))
+df_drugs_clean.OFFENSE_DESCRIPTION = df_drugs_clean.OFFENSE_DESCRIPTION.apply(skim(classes))
 
 df_drugs_clean.OFFENSE_DESCRIPTION.value_counts()
 
