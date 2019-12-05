@@ -123,8 +123,8 @@
             //scrolling
             css3: true,
             scrollingSpeed: 700,
-            autoScrolling: true,
-            fitToSection: true,
+            autoScrolling: false,
+            fitToSection: false,
             fitToSectionDelay: 1000,
             easing: 'easeInOutCubic',
             easingcss3: 'ease',
@@ -155,7 +155,7 @@
 
             //design
             controlArrows: true,
-            controlArrowColor: '#fff',
+            controlArrowColor: 'black',
             verticalCentered: true,
             sectionsColor : [],
             paddingTop: 0,
@@ -165,7 +165,7 @@
             responsiveWidth: 0,
             responsiveHeight: 0,
             responsiveSlides: false,
-            parallax: false,
+            parallax: true,
             parallaxOptions: {
                 type: 'reveal',
                 percentage: 62,

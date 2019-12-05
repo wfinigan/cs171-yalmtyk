@@ -1,22 +1,19 @@
-h1 {
-
-    font-family: 'Cormorant Garamond', serif;
-    position: absolute;
-    color: white;
-    width: 50%;
-}
-
-.section {
-    overflow: hidden;
-    margin-top: 20px;
-}
-
 .area:hover {
 	opacity: .8;
 }
 
 #fp-nav {
-    background: none;
+    background: #ccc;
+    border-radius: 10px;
+    opacity: .5;
+}
+
+#fp-nav ul li .fp-tooltip {
+    background-color: white;
+    color: black;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
 }
 
 div.tooltip {
@@ -50,14 +47,28 @@ h2 {
 .title {
     overflow: hidden;
     height: inherit;
+    text-align: center;
 }
 
 .title img {
-    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
 }
 
-div {
-    background-color: white;
+#title-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    font-family: 'Cormorant Garamond', serif;
+    color: white;
+    background-color:  #67000d;
+    padding: 20px;
+    opacity: .8;
+}
+
+.section {
+    background-color: white !important;
 }
 
 .small-mult-title {
@@ -191,15 +202,8 @@ div {
     vertical-align: middle;
 }
 /* TIMELINE */
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-button {
+.arrow {
     background: transparent;
     border: none;
     cursor: pointer;
@@ -208,7 +212,6 @@ button {
 
 .timeline {
     font: normal 16px/1.5 "Helvetica Neue", sans-serif;
-    background: #456990;
     color: #fff;
 }
 
@@ -237,13 +240,12 @@ button {
 
 .timeline {
     white-space: nowrap;
-    overflow-x: hidden;
 }
 
 .timeline ol {
     font-size: 0;
     width: 100vw;
-    padding: 250px 0;
+    padding: 200px 0;
     transition: all 1s;
 }
 
@@ -253,7 +255,11 @@ button {
     list-style-type: none;
     width: 200px;
     height: 3px;
-    background: #fff;
+    background: #67000d;
+}
+
+.timeline-expand-btn {
+    margin: auto;
 }
 
 .timeline ol li:last-child {
@@ -274,7 +280,7 @@ button {
     height: 12px;
     transform: translateY(-50%);
     border-radius: 50%;
-    background: #8B0000;
+    background: #fc9272;
 }
 
 .timeline ol li div {
@@ -420,12 +426,13 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+
 #march {
     width: 600px;
 }
 .arrows {
-    background: #456990;
 }
+
 #june {
     width: 300px;
 }
@@ -436,3 +443,23 @@ button {
     width: 600px;
 }
 
+#about-link{
+    align: right;
+}
+
+
+@media only screen and (max-width: 500px) {
+    /*shows elements in a column*/
+    ul{
+        flex-direction: column;
+    }
+
+    /* deletes margin on top or bottom of the a tag*/
+    li{
+        margin: 0;
+    }
+    /* makes sure that the a tag will take the entire screen*/
+    a{
+        display: block;
+    }
+}

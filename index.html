@@ -3,23 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>D3 Project</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+
     <link rel="stylesheet" href="css/navigation.css">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--    fonts   -->
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Proza+Libre&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400|Thasadith" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Proza+Libre&display=swap" rel="stylesheet">
-
+    <!--    icons   -->
     <link href="css/font-awesome.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#1">Title <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#2">Intro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#3">Timeline</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#4">Map</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#6">Crime by Class</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#9">Clock</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
 <div id="fullpage">
     <div class="section">
         <div class="title">
-            <h1>The Impact of the Legalization of Marijuana on Boston Drug Incident Reports</h1>
+            <p id="title-text">The Impact of the Legalization of Marijuana on Boston Drug Incident Reports</p>
+
             <img src="https://www.bostonmagazine.com/wp-content/uploads/sites/2/2016/09/police-lights-1.jpg" alt="">
         </div>
     </div>
@@ -44,62 +80,89 @@
             <div class="timeline">
                 <ol>
                     <li>
-                        <div>
+                        <div class="card">
                             <time>November 8, 2016<p id="first"></p><a id="l1" href="https://www.nytimes.com/elections/2016/results/massachusetts-ballot-measure-4-legalize-marijuana"></a></time>
-                            <p class="btn" id="nov8"> + </p>
+                            <i class="material-icons btn btn-dark timeline-expand-btn" id="nov8">
+                                unfold_more
+                            </i>
                         </div>
                     </li>
                     <li>
-                        <div>
+                        <div class="card">
                             <time>December 15, 2016<p id="second"></p></time>
-                            <p class="btn" id="dec15"> + </p>
+                            <i class="material-icons btn btn-dark timeline-expand-btn" id="dec15">
+                                unfold_more
+                            </i>
+
                         </div>
                     </li>
                     <li id="march">
-                        <div>
+                        <div class="card">
                             <time>March 6, 2018<p id="third"></p></time>
-                            <p class="btn" id="mar6"> + </p>
+                            <i class="material-icons btn btn-dark timeline-expand-btn" id="mar6" class="button">
+                                unfold_more
+                            </i>
+
                         </div>
                     </li>
                     <li>
-                        <div>
+                        <div class="card">
                             <time>April 2, 2018<p id="fourth"></p></time>
-                            <p class="btn" id="april2"> + </p>
+                            <i class="material-icons btn btn-dark timeline-expand-btn" id="april2" class="button">
+                                unfold_more
+                            </i>
+
                         </div>
                     </li>
                     <li id="june">
-                        <div>
+                        <div class="card">
                             <time>June 28, 2018<p id="fifth"></p></time>
-                            <p class="btn" id="june28"> + </p>
+                            <i class="material-icons btn btn-dark timeline-expand-btn" id="june28" class="button">
+                                unfold_more
+                            </i>
+
                         </div>
                     </li>
                     <li id="october">
-                        <div>
+                        <div class="card">
                             <time>October 4, 2018<p id="sixth"></p></time>
-                            <p class="btn" id="oct4"> + </p>
+                            <i class="material-icons btn btn-dark timeline-expand-btn" id="oct4" class="button">
+                                unfold_more
+                            </i>
+
                         </div>
                     </li>
                     <li>
-                        <div>
+                        <div class="card">
                             <time>November 20, 2018<p id="seventh"></p></time>
-                            <p class="btn" id="nov20"> + </p>
+                            <i class="material-icons btn btn-dark timeline-expand-btn" id="nov20" class="button">
+                                unfold_more
+                            </i>
+
                         </div>
                     </li>
                     <li id="september">
-                        <div>
+                        <div class="card">
                             <time>September 24, 2019<p id="eighth"></p></time>
-                            <p class="btn" id="sept24"> + </p>
+                            <i class="material-icons btn btn-dark timeline-expand-btn" id="sept24">
+                                unfold_more
+                            </i>
+
                         </div>
                     </li>
                     <li></li>
                 </ol>
-<!--CHANGED!!!!-->
+                <!--CHANGED!!!!-->
                 <div class="arrows">
                     <button class="arrow arrow__prev disabled" disabled>
-                        <img src="https://www.iconsdb.com/icons/preview/color/8B0000/left-round-xxl.png" alt="prev timeline arrow">
+                        <i class="material-icons btn btn-dark">
+                            navigate_before
+                        </i>
                     </button>
                     <button class="arrow arrow__next">
-                        <img src="https://www.iconsdb.com/icons/preview/color/8B0000/right-round-xxl.png" alt="next timeline arrow">
+                        <i class="material-icons btn btn-dark">
+                            navigate_next
+                        </i>
                     </button>
                 </div>
             </div>
@@ -218,9 +281,12 @@
 <script src="js/d3.min.js"></script>
 <script src="js/queue.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+<script src="https://hammerjs.github.io/dist/hammer.js"></script>
 
 <!--navigation files (https://alvarotrigo.com/fullPage/examples/navigationV.html#firstPage)-->
 <script src="js/navigation.js"></script>
+
+<!-- custom visualization files -->
 <script src="js/main.js"></script>
 <script src="js/stackedAreaChart.js"></script>
 <script src="js/map.js"></script>
@@ -228,7 +294,6 @@
 <script src="js/areachart.js"></script>
 <script src="js/timeline.js"></script>
 <script src="js/clock.js"></script>
-<script src="https://hammerjs.github.io/dist/hammer.js"></script>
 
 </body>
 </html>
