@@ -1,7 +1,7 @@
-SmallMult = function(_parentElement, _data, _distName){
+SmallMult = function(_parentElement, _data, _className){
     this.parentElement = _parentElement;
     this.data = _data;
-    this.distName = _distName
+    this.className = _className;
 
     this.initVis();
 };
@@ -15,8 +15,6 @@ SmallMult.prototype.initVis = function(){
     vis.width = 150 - vis.margin.left - vis.margin.right,
         vis.height = 150 - vis.margin.top - vis.margin.bottom;
 
-
-
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
         .attr("width", vis.width + vis.margin.left + vis.margin.right)
@@ -27,14 +25,14 @@ SmallMult.prototype.initVis = function(){
 
     d3.select("#" + vis.parentElement)
         .on('click', function (d) {
-            setFilter(vis.distName)
+            setFilter(vis.className)
         });
 
     vis.svg.append('text')
         .attr('x', -40 + vis.width / 2)
         .attr('y', -20)
         .attr('class', 'small-mult-title')
-        .text('District: ' + vis.distName)
+        .text(vis.className);
 
     // Scales and axes
     vis.x = d3.scaleTime()
@@ -47,7 +45,6 @@ SmallMult.prototype.initVis = function(){
         .curve(d3.curveCardinal)
         .x(function(d) { return vis.x(parseDateYM(d.key)); })
         .y(function(d) { return vis.y(d.value); });
-
 
     vis.wrangleData();
 };
@@ -63,11 +60,9 @@ SmallMult.prototype.wrangleData = function(){
         })
         .entries(vis.data);
 
-
     vis.nestedData = vis.nestedData.sort(function (a, b) {
         return parseDateYM(a.key) - parseDateYM(b.key)
     });
-
 
     vis.displayData = vis.nestedData;
 

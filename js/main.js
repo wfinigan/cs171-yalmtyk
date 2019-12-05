@@ -24,52 +24,58 @@ var area_chart,
 var smallMults = [];
 
 
-d3.csv('data/StackedAreaChart.csv', function (data) {
-    area_chart = new AreaChart('area-chart', data);
-
-});
-
 function stackedAreaMults(data) {
-    var districts = ['D4', 'E13', 'C11', 'D14', 'A1', 'B2', 'E5', 'B3', 'A7', 'C6', 'E18', 'A15'];
+    // https://appdividend.com/2019/04/11/how-to-get-distinct-values-from-array-in-javascript/
+    const unique = (value, index, self) => {
+        return self.indexOf(value) === index
+    };
 
-    var dataDist = {};
+    var offense_descriptions = [];
+
+    data.forEach(function (d) {
+        offense_descriptions.push(d.OFFENSE_DESCRIPTION)
+    });
+
+    var classes = offense_descriptions.filter(unique).sort();
+
+    var dataByClass = {};
 
     stackedAreaChart = new StackedAreaChart('stacked-area-chart', data);
 
-    districts.forEach(function (d) {
-        dataDist[d] = [];
+    classes.forEach(function (d, i) {
+        dataByClass[d] = [];
         d3.select('#small-mults').append('div')
-            .attr('id', 'small-mult-' + d)
+            .attr('id', 'small-mult-' + i)
     });
 
     // set data for small multiples
     data.forEach(function(row) {
-        if (dataDist[row.DISTRICT] != undefined) {
-            dataDist[row.DISTRICT].push(row)
+        if (dataByClass[row.OFFENSE_DESCRIPTION] != undefined) {
+            dataByClass[row.OFFENSE_DESCRIPTION].push(row)
         }
 
     });
 
-    districts.forEach(function (d) {
-        smallMults.push(new SmallMult('small-mult-' + d, dataDist[d], d))
+    classes.forEach(function (d, i) {
+        smallMults.push(new SmallMult('small-mult-' + i, dataByClass[d], d))
     });
 
     d3.select('#all-mults')
         .append('p')
-        .text('All districts')
+        .text('All classes')
         .on('click', function() {
             stackedAreaChart.data = data
             stackedAreaChart.wrangleData()
         });
 
     // helper function for small multiples
-    setFilter = function setFilter(distName) {
+    setFilter = function setFilter(className) {
         stackedAreaChart.data = data.filter(function (row) {
-            return row.DISTRICT == distName
+            return (row.OFFENSE_DESCRIPTION == className)
         });
 
         stackedAreaChart.wrangleData()
-    }
+    };
 
     return stackedAreaChart
 
