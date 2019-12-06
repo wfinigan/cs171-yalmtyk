@@ -96,4 +96,10 @@ queue()
     });
 
 
+d3.csv("data/ClassDViolations.csv", function(data) {
+    console.log(data)
+    linegraph = new LineGraph('linegraph-chart', data)
+});
+
+
 
