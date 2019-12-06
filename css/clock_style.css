@@ -1,0 +1,38 @@
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    background: #fcfbff;
+    border: 0px;
+    border-radius: 8px;
+}
+
+#text{
+    margin-top: 40px;
+    margin-bottom: 30px;
+    margin-left: 85px;
+    margin-right: 50px;
+    border-width: 2px;
+    border-style:dotted;
+    border-color: #a39e9f;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+#key{
+    margin-top: 135px;
+    margin-left: 65px;
+}
+
+#clock{
+    border-width: 4px;
+    border-style:solid;
+    border-radius: 200px;
+    border-color: #a39e9f;
+    padding-bottom: 40px;
+    padding-right: 40px;
+    margin-left: 0px;
+
+}

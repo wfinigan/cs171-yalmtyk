@@ -12,8 +12,10 @@ SmallMult.prototype.initVis = function(){
 
     vis.margin = { top: 30, right: 10, bottom: 10, left: 10 };
 
-    vis.width = 150 - vis.margin.left - vis.margin.right,
-        vis.height = 150 - vis.margin.top - vis.margin.bottom;
+    var windowWidth = ($('#small-mults-card').width() * .3)
+
+    vis.width = windowWidth - vis.margin.left - vis.margin.right,
+        vis.height = windowWidth - vis.margin.top - vis.margin.bottom;
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -29,10 +31,11 @@ SmallMult.prototype.initVis = function(){
         });
 
     vis.svg.append('text')
-        .attr('x', -40 + vis.width / 2)
+        .attr('x', vis.width / 2)
+        .attr('text-anchor', 'middle')
         .attr('y', -20)
         .attr('class', 'small-mult-title')
-        .text(vis.className);
+        .text(toTitleCase(vis.className));
 
     // Scales and axes
     vis.x = d3.scaleTime()

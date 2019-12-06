@@ -2,11 +2,11 @@
 
 // settings for navigation
 var myFullpage = new fullpage('#fullpage', {
-    anchors: ['firstPage', 'secondPage', '3rdPage'],
-    sectionsColor: ['#507EB3', '#B31405', '#507EB3', '#B31405', '#507EB3', '#B31405', '#507EB3'],
+    anchors: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+    sectionsColor: [],
     navigation: true,
     navigationPosition: 'right',
-    navigationTooltips: ['Title', 'Intro', 'Area Chart', 'Visualization 2', 'Visualization 3', 'Visualization 4', 'Conclusion']
+    navigationTooltips: ['Title', 'Intro', 'Background', 'Map', 'Violations Locations', 'Violations by Class', 'News', 'Analysis', 'Violations by Hour', 'So What?']
 });
 
 
@@ -30,7 +30,7 @@ function stackedAreaMults(data) {
         return self.indexOf(value) === index
     };
 
-    var offense_descriptions = [];
+    var offense_descriptions = ['All Classes'];
 
     data.forEach(function (d) {
         offense_descriptions.push(d.OFFENSE_DESCRIPTION)
@@ -53,8 +53,9 @@ function stackedAreaMults(data) {
         if (dataByClass[row.OFFENSE_DESCRIPTION] != undefined) {
             dataByClass[row.OFFENSE_DESCRIPTION].push(row)
         }
-
     });
+
+    dataByClass['All Classes'] = data;
 
     classes.forEach(function (d, i) {
         smallMults.push(new SmallMult('small-mult-' + i, dataByClass[d], d))
@@ -71,7 +72,7 @@ function stackedAreaMults(data) {
     // helper function for small multiples
     setFilter = function setFilter(className) {
         stackedAreaChart.data = data.filter(function (row) {
-            return (row.OFFENSE_DESCRIPTION == className)
+            return (row.OFFENSE_DESCRIPTION == className) || (className == "All Classes")
         });
 
         stackedAreaChart.wrangleData()

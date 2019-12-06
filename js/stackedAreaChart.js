@@ -9,9 +9,9 @@ StackedAreaChart = function(_parentElement, _data){
 StackedAreaChart.prototype.initVis = function(){
     let vis = this;
 
-    vis.margin = { top: 40, right: 0, bottom: 60, left: 350 };
+    vis.margin = { top: 40, right: 300, bottom: 100, left: 200 };
 
-    vis.width = 800 - vis.margin.left - vis.margin.right,
+    vis.width = $('#stacked-area-chart-col').width() - vis.margin.left - vis.margin.right,
         vis.height = 400 - vis.margin.top - vis.margin.bottom;
 
     vis.first = false;
@@ -19,10 +19,19 @@ StackedAreaChart.prototype.initVis = function(){
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
-        .attr("width", vis.width + vis.margin.left + vis.margin.right)
-        .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
+    // Container class to make it responsive.
+        .classed("svg-container", true)
+        // Responsive SVG needs these 2 attributes and no width and height attr.
+        .attr("preserveAspectRatio", "xMinYMin meet")
+        .attr("viewBox", "0 0 600 400")
+        // Class to make it responsive.
+        .classed("svg-content-responsive", true)
+        // .attr("width", vis.width + vis.margin.left + vis.margin.right)
+        // .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
         .append("g")
         .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
+
+
 
     // Scales and axes
     vis.x = d3.scaleTime()
@@ -33,7 +42,8 @@ StackedAreaChart.prototype.initVis = function(){
         .range([vis.height, 0]);
 
     vis.xAxis = d3.axisBottom()
-        .scale(vis.x);
+        .scale(vis.x)
+
 
     vis.yAxis = d3.axisLeft()
         .scale(vis.y);
@@ -46,10 +56,14 @@ StackedAreaChart.prototype.initVis = function(){
         .attr("class", "y-axis axis");
 
 
-// Define the div for the tooltip
     vis.toolDiv = d3.select("body").append("div")
         .attr("class", "tooltip")
         .style("opacity", 0);
+
+    vis.legendToolDiv = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
 
 
     vis.area = d3.area()
@@ -161,28 +175,56 @@ StackedAreaChart.prototype.updateVis = function() {
     var legendBoxWidth = 20;
     var buffer = 10;
 
+
     vis.svg.selectAll('rect')
         .data(vis.colorScale.domain())
         .enter()
         .append('rect')
+        .on("mouseover", function(d) {
+            vis.legendToolDiv.transition()
+                .duration(200)
+                .style("opacity", .9);
+            vis.legendToolDiv.html(getDescriptions(d))
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+        })
+        .on("mouseout", function(d) {
+            vis.legendToolDiv.transition()
+                .duration(500)
+                .style("opacity", 0);
+        })
+
         .attr('width', legendBoxWidth)
         .attr('height', legendBoxWidth)
         .attr('fill', function (d) {
             return vis.colorScale(d)
         })
-        .attr('x', -300)
-        .attr('y', function(d, index) { return (legendBoxWidth + buffer) * index })
+        .attr('x', -130)
+        .attr('y', function(d, index) { return 50 + (legendBoxWidth + buffer) * index })
 
-    vis.svg.selectAll('.legendLabel')
+
+    var legends = vis.svg.selectAll('.legendLabel')
         .data(vis.colorScale.domain())
         .enter()
         .append('text')
-        .text(function (d) {
-            return toTitleCase(d)
+        .on("mouseover", function(d) {
+            vis.legendToolDiv.transition()
+                .duration(200)
+                .style("opacity", .9);
+            vis.legendToolDiv.html(getDescriptions(d))
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
         })
-        .attr('x', -275)
-        .attr('y', function(d, index) { return 15 + (legendBoxWidth + buffer) * index })
+        .on("mouseout", function(d) {
+            vis.legendToolDiv.transition()
+                .duration(500)
+                .style("opacity", 0);
+        })
+        .text(toTitleCase)
+        .attr('x', -100)
+        .attr('y', function(d, index) { return 65 + (legendBoxWidth + buffer) * index })
         .attr('class', 'legendLabel')
+
 
     console.log(vis.x(parseDateYM('12/2016')))
     vis.svg.append('line')
@@ -194,8 +236,31 @@ StackedAreaChart.prototype.updateVis = function() {
 
 
     // Call axis functions with the new domain
-    vis.svg.select(".x-axis").call(vis.xAxis);
+    vis.svg.select(".x-axis").call(vis.xAxis.tickFormat(d3.timeFormat("%B %Y")))
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-65)");
+
     vis.svg.select(".y-axis").call(vis.yAxis);
 
     vis.first = false;
+}
+
+
+function getDescriptions(d) {
+    if (toTitleCase(d) == "Class A") {
+        return " Heroin, morphine, GHB, Special K";
+    } else if (toTitleCase(d) == "Class B") {
+        return " Cocaine, LSD, oxycodone, ecstacy, methamphetamine";
+    } else if (toTitleCase(d) == "Class C") {
+        return " Prescription tranquilizers and narcotics, hallucinogenic drugs";
+    } else if (toTitleCase(d) == "Class D") {
+        return "Marijuana";
+    } else if (toTitleCase(d) == "Class E") {
+        return "Prescription drugs containing weaker amounts of Opiates";
+    } else if (toTitleCase(d) == "Other") {
+        return toTitleCase(d);
+    }
 }

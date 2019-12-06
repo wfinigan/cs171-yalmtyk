@@ -85,15 +85,42 @@ h2 {
 
 #small-mults svg {
     border-radius: 20px;
-    padding: 10px;
-    margin: 10px;
 }
 
 #small-mults svg:hover {
     background-color: #ccc;
 }
+
 #small-mults div {
-    display: inline;
+    width: fit-content;
+    height: fit-content;
+}
+.small-mult-row {
+    height: 100%
+}
+
+.small-mult-col {
+    max-width: 30%
+}
+
+#small-mults-card {
+    margin-right: 20px;
+}
+
+#small-mults {
+    margin: 10px;
+}
+
+#small-mults-card {
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+#small-mults-card,
+#small-mults {
+    height: fit-content;
+    flex-wrap: wrap;
 }
 
 #map path,
@@ -112,40 +139,6 @@ h2 {
     font-size: 8pt;
 }
 
-
-#small-mults::-webkit-scrollbar {
-    -webkit-appearance: none;
-}
-
-#small-mults::-webkit-scrollbar:vertical {
-    width: 11px;
-}
-
-#small-mults::-webkit-scrollbar:horizontal {
-    height: 11px;
-}
-
-#small-mults::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    border: 2px solid white; /* should match background, can't be transparent */
-    background-color: rgba(0, 0, 0, .5);
-}
-
-#small-mults {
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    height: 600px;
-    width: 80%;
-    line-height: 1em;
-    padding: 15px;
-    box-shadow:  -1px 1px #ccc,
-    -2px 2px #ccc,
-    -3px 3px #ccc,
-    -4px 4px #ccc,
-    -5px 5px #ccc;
-
-}
 
 #stacked-area-chart
 {
@@ -176,16 +169,29 @@ h2 {
 
 .map_text{
     font-size: 12pt;
-    padding: 25px;
+    margin-left: 10%;
+    margin-top: 5%;
+    text-align: justify;
+    alignment: center;
+}
+
+#gif{
+    margin-top: 10%;
 }
 
 .intro_text{
     font-size: 15pt;
-    padding: 100px;
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 7%;
 }
 
 .storyh{
     font-size: 24pt;
+}
+#subtitle{
+    margin-bottom: 40px;
 }
 
 #headlines{
@@ -468,4 +474,79 @@ h2 {
     a{
         display: block;
     }
+}
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+
+
+.item-1,
+.item-2,
+.item-3 {
+    position: absolute;
+    display: block;
+    top: 2em;
+    margin-top: 10%;
+    width: 60%;
+alignment: center;
+    font-size: 2em;
+
+    animation-duration: 20s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.item-1{
+    animation-name: anim-1;
+}
+
+.item-2{
+    animation-name: anim-2;
+}
+
+.item-3{
+    animation-name: anim-3;
+}
+
+@keyframes anim-1 {
+    0%, 8.3% { left: -100%; opacity: 0; }
+    8.3%,25% { left: 25%; opacity: 1; }
+    33.33%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-2 {
+    0%, 33.33% { left: -100%; opacity: 0; }
+    41.63%, 58.29% { left: 25%; opacity: 1; }
+    66.66%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-3 {
+    0%, 66.66% { left: -100%; opacity: 0; }
+    74.96%, 91.62% { left: 25%; opacity: 1; }
+    100% { left: 110%; opacity: 0; }
+}
+
+#map_text{
+    margin-top: 40px;
+    margin-bottom: 100px;
+    border-width: 2px;
+    border-style:dotted;
+    border-color: #a39e9f;
+    padding: 20px;
+}
+
+#clock_title{
+    margin-left: 10%;
 }
