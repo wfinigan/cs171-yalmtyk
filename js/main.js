@@ -30,7 +30,7 @@ function stackedAreaMults(data) {
         return self.indexOf(value) === index
     };
 
-    var offense_descriptions = [];
+    var offense_descriptions = ['All Classes'];
 
     data.forEach(function (d) {
         offense_descriptions.push(d.OFFENSE_DESCRIPTION)
@@ -53,8 +53,9 @@ function stackedAreaMults(data) {
         if (dataByClass[row.OFFENSE_DESCRIPTION] != undefined) {
             dataByClass[row.OFFENSE_DESCRIPTION].push(row)
         }
-
     });
+
+    dataByClass['All Classes'] = data;
 
     classes.forEach(function (d, i) {
         smallMults.push(new SmallMult('small-mult-' + i, dataByClass[d], d))
@@ -71,7 +72,7 @@ function stackedAreaMults(data) {
     // helper function for small multiples
     setFilter = function setFilter(className) {
         stackedAreaChart.data = data.filter(function (row) {
-            return (row.OFFENSE_DESCRIPTION == className)
+            return (row.OFFENSE_DESCRIPTION == className) || (className == "All Classes")
         });
 
         stackedAreaChart.wrangleData()

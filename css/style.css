@@ -85,15 +85,42 @@ h2 {
 
 #small-mults svg {
     border-radius: 20px;
-    padding: 10px;
-    margin: 10px;
 }
 
 #small-mults svg:hover {
     background-color: #ccc;
 }
+
 #small-mults div {
-    display: inline;
+    width: fit-content;
+    height: fit-content;
+}
+.small-mult-row {
+    height: 100%
+}
+
+.small-mult-col {
+    max-width: 30%
+}
+
+#small-mults-card {
+    margin-right: 20px;
+}
+
+#small-mults {
+    margin: 10px;
+}
+
+#small-mults-card {
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+#small-mults-card,
+#small-mults {
+    height: fit-content;
+    flex-wrap: wrap;
 }
 
 #map path,
@@ -112,40 +139,6 @@ h2 {
     font-size: 8pt;
 }
 
-
-#small-mults::-webkit-scrollbar {
-    -webkit-appearance: none;
-}
-
-#small-mults::-webkit-scrollbar:vertical {
-    width: 11px;
-}
-
-#small-mults::-webkit-scrollbar:horizontal {
-    height: 11px;
-}
-
-#small-mults::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    border: 2px solid white; /* should match background, can't be transparent */
-    background-color: rgba(0, 0, 0, .5);
-}
-
-#small-mults {
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    height: 600px;
-    width: 80%;
-    line-height: 1em;
-    padding: 15px;
-    box-shadow:  -1px 1px #ccc,
-    -2px 2px #ccc,
-    -3px 3px #ccc,
-    -4px 4px #ccc,
-    -5px 5px #ccc;
-
-}
 
 #stacked-area-chart
 {
