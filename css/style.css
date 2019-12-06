@@ -176,16 +176,29 @@ h2 {
 
 .map_text{
     font-size: 12pt;
-    padding: 25px;
+    margin-left: 10%;
+    margin-top: 5%;
+    text-align: justify;
+    alignment: center;
+}
+
+#gif{
+    margin-top: 10%;
 }
 
 .intro_text{
     font-size: 15pt;
-    padding: 100px;
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 7%;
 }
 
 .storyh{
     font-size: 24pt;
+}
+#subtitle{
+    margin-bottom: 40px;
 }
 
 #headlines{
@@ -468,4 +481,79 @@ h2 {
     a{
         display: block;
     }
+}
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+
+
+.item-1,
+.item-2,
+.item-3 {
+    position: absolute;
+    display: block;
+    top: 2em;
+    margin-top: 10%;
+    width: 60%;
+alignment: center;
+    font-size: 2em;
+
+    animation-duration: 20s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.item-1{
+    animation-name: anim-1;
+}
+
+.item-2{
+    animation-name: anim-2;
+}
+
+.item-3{
+    animation-name: anim-3;
+}
+
+@keyframes anim-1 {
+    0%, 8.3% { left: -100%; opacity: 0; }
+    8.3%,25% { left: 25%; opacity: 1; }
+    33.33%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-2 {
+    0%, 33.33% { left: -100%; opacity: 0; }
+    41.63%, 58.29% { left: 25%; opacity: 1; }
+    66.66%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-3 {
+    0%, 66.66% { left: -100%; opacity: 0; }
+    74.96%, 91.62% { left: 25%; opacity: 1; }
+    100% { left: 110%; opacity: 0; }
+}
+
+#map_text{
+    margin-top: 40px;
+    margin-bottom: 100px;
+    border-width: 2px;
+    border-style:dotted;
+    border-color: #a39e9f;
+    padding: 20px;
+}
+
+#clock_title{
+    margin-left: 10%;
 }
