@@ -1,3 +1,9 @@
+.area-chart-time {
+    stroke: #1b1e21;
+    stroke-width: 4;
+}
+
+
 .area:hover {
 	opacity: .8;
 }

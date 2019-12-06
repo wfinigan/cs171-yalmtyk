@@ -184,6 +184,15 @@ StackedAreaChart.prototype.updateVis = function() {
         .attr('y', function(d, index) { return 15 + (legendBoxWidth + buffer) * index })
         .attr('class', 'legendLabel')
 
+    console.log(vis.x(parseDateYM('12/2016')))
+    vis.svg.append('line')
+        .attr('x1', vis.x(parseDateYM('12/2016')))
+        .attr('x2', vis.x(parseDateYM('12/2016')))
+        .attr('y1', 0)
+        .attr('y2', vis.height)
+        .attr('class', 'area-chart-time');
+
+
     // Call axis functions with the new domain
     vis.svg.select(".x-axis").call(vis.xAxis);
     vis.svg.select(".y-axis").call(vis.yAxis);
