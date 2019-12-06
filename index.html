@@ -18,34 +18,48 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/clock_style.css">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#1">Title <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#1">Title<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#2">Intro</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#3">Timeline</a>
+                <a class="nav-link" href="#3">Background</a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="#4">Map</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#6">Crime by Class</a>
+                <a class="nav-link" href="#5">Violations by Class</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#9">Clock</a>
+                <a class="nav-link" href="#6">Violations by District</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#7">News</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#8">Analysis</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#9">Violations by Hour</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#10">So What?</a>
             </li>
 
         </ul>
@@ -54,7 +68,8 @@
 <div id="fullpage">
     <div class="section">
         <div class="title">
-            <p id="title-text">The Impact of the Legalization of Marijuana on Boston Drug Incident Reports</p>
+            <p id="title-text">The Impact of the Legalization of Recreational Marijuana on Boston Drug Incident
+                Reports</p>
 
             <img src="https://www.bostonmagazine.com/wp-content/uploads/sites/2/2016/09/police-lights-1.jpg" alt="">
         </div>
@@ -62,11 +77,18 @@
 
     <div class="section">
         <div class="viz">
-            <p class="intro_text">In November of 2016, Massachusetts voted to legalize the drug marijuana for
-                recreational use. In the months since then, cities across the state have begun to implement new policies
-                towards regularizing the use of the drug. Using data from the Boston Police Department our team is
-                striving to visualize and explain the story of how law enforcement has responded to these changes when
-                it comes to policing the use of Marijuana in Boston.</p>
+            <div class="intro_text1"><p class="item-1">In November of 2016, Massachusetts voted to legalize the drug
+                marijuana for
+                recreational use.<br>⬤   ◯   ◯</p>
+
+                <p class="item-2">In the months since then, cities across the state have begun to implement new policies
+                    towards regularizing the use of the drug.<br>◯   ⬤   ◯</p>
+
+                <p class="item-3">Using data from the Boston Police Department, this site
+                    visualizes and explains the story of how law enforcement has responded to these changes when
+                    it comes to policing the use of Marijuana in Boston. Scroll on to explore the impact of
+                    the legalization of marijuana in Massachusetts...<br>◯   ◯  ⬤</p>
+            </div>
         </div>
     </div>
 
@@ -74,14 +96,16 @@
         <div class="viz">
             <div class="intro">
                 <div class="container">
-                    <h1> The Legalization of Marijuana in Massachusetts: A Brief History</h1>
+                    <h1> The Legalization of Recreational Marijuana in Massachusetts: A Brief History</h1>
                 </div>
             </div>
             <div class="timeline">
                 <ol>
                     <li>
                         <div class="card">
-                            <time>November 8, 2016<p id="first"></p><a id="l1" href="https://www.nytimes.com/elections/2016/results/massachusetts-ballot-measure-4-legalize-marijuana"></a></time>
+                            <time>November 8, 2016<p id="first"></p><a id="l1"
+                                                                       href="https://www.nytimes.com/elections/2016/results/massachusetts-ballot-measure-4-legalize-marijuana"></a>
+                            </time>
                             <i class="material-icons btn btn-dark timeline-expand-btn" id="nov8">
                                 unfold_more
                             </i>
@@ -89,7 +113,9 @@
                     </li>
                     <li>
                         <div class="card">
-                            <time>December 15, 2016<p id="second"></p></time>
+                            <time>December 15, 2016<p id="second"></p><a id="l2"
+                                                                         href="https://www.nytimes.com/elections/2016/results/massachusetts-ballot-measure-4-legalize-marijuana"></a>
+                            </time>
                             <i class="material-icons btn btn-dark timeline-expand-btn" id="dec15">
                                 unfold_more
                             </i>
@@ -98,7 +124,9 @@
                     </li>
                     <li id="march">
                         <div class="card">
-                            <time>March 6, 2018<p id="third"></p></time>
+                            <time>March 6, 2018<p id="third"></p><a id="l3"
+                                                                    href="https://mass-cannabis-control.com/wp-content/uploads/2018/06/03-06-18-Meeting-Minutes.pdf"></a>
+                            </time>
                             <i class="material-icons btn btn-dark timeline-expand-btn" id="mar6" class="button">
                                 unfold_more
                             </i>
@@ -107,7 +135,9 @@
                     </li>
                     <li>
                         <div class="card">
-                            <time>April 2, 2018<p id="fourth"></p></time>
+                            <time>April 2, 2018<p id="fourth"></p><a id="l4"
+                                                                     href="https://mass-cannabis-control.com/cannabis-control-commission-approves-application-process-begin-april-2/"></a>
+                            </time>
                             <i class="material-icons btn btn-dark timeline-expand-btn" id="april2" class="button">
                                 unfold_more
                             </i>
@@ -116,7 +146,9 @@
                     </li>
                     <li id="june">
                         <div class="card">
-                            <time>June 28, 2018<p id="fifth"></p></time>
+                            <time>June 28, 2018<p id="fifth"></p><a id="l5"
+                                                                    href="https://www.wbur.org/bostonomix/2018/06/27/massachusetts-marijuana-equity"></a>
+                            </time>
                             <i class="material-icons btn btn-dark timeline-expand-btn" id="june28" class="button">
                                 unfold_more
                             </i>
@@ -125,7 +157,9 @@
                     </li>
                     <li id="october">
                         <div class="card">
-                            <time>October 4, 2018<p id="sixth"></p></time>
+                            <time>October 4, 2018<p id="sixth"></p><a id="l6"
+                                                                      href="https://www.boston.com/news/local-news/2018/10/04/massachusett-final-recreational-marijuana-sales-licenses"></a>
+                            </time>
                             <i class="material-icons btn btn-dark timeline-expand-btn" id="oct4" class="button">
                                 unfold_more
                             </i>
@@ -134,7 +168,9 @@
                     </li>
                     <li>
                         <div class="card">
-                            <time>November 20, 2018<p id="seventh"></p></time>
+                            <time>November 20, 2018<p id="seventh"></p><a id="l7"
+                                                                          href="https://www.boston.com/news/local-news/2018/11/20/massachusetts-recreational-marijuana-dispensaries-opening-day"></a>
+                            </time>
                             <i class="material-icons btn btn-dark timeline-expand-btn" id="nov20" class="button">
                                 unfold_more
                             </i>
@@ -143,7 +179,9 @@
                     </li>
                     <li id="september">
                         <div class="card">
-                            <time>September 24, 2019<p id="eighth"></p></time>
+                            <time>September 24, 2019<p id="eighth"></p><a id="l8"
+                                                                          href="https://www.bostonherald.com/2019/09/24/ccc-approves-cannabis-cafes-home-delivery-regulations/"></a>
+                            </time>
                             <i class="material-icons btn btn-dark timeline-expand-btn" id="sept24">
                                 unfold_more
                             </i>
@@ -170,14 +208,19 @@
     </div>
 
     <div class="section">
-        <h2 class="storyh">Drug Violations in Boston by Location</h2>
-        <h2>(Click the legend to filter by violation)</h2>
-        <div id="map"></div>
+        <h2 class="storyh">Location of Drug Violations in Boston by Class</h2>
+        <h2 id = "subtitle">(Click the legend titles to filter by violation)</h2>
+        <div class="row">
+            <div class="col-9">
+                <div id="map"></div>
+            </div>
+            <div class="col-2" id = "map_text">text goes here</div>
+        </div>
     </div>
 
     <div class="section">
         <div class="viz">
-            <h2 class="storyh">Marijuana Arrests by District</h2>
+            <h2 class="storyh">Marijuana Violations by District</h2>
             <div class="row">
                 <div class="col">
                     <p class='map_text'>The map visualization shows that the number of arrests for Marijuana (Class D)
@@ -190,12 +233,14 @@
                         law.</p>
                     <p class='map_text'>“We’re not looking to hit people with fines for smoking pot,” he told the
                         Globe’s Mark Asenault. “The laws are relatively new. People see a headline that says pot is
-                        legal now and they may not realize” public consumption is still prohibited.
+                        legal now and they may not realize” public consumption is still prohibited. Here, Fong makes the
+                        policing strategy clear: <b> the police are not targeting recreational users, but rather are going
+                        after the illegal market. </b>
                     </p>
                 </div>
                 <div class="col">
-                    <figure>
-                        <img src="img/districts.png">
+                    <figure id = "gif">
+                        <img src="img/ezgif.com-gif-maker.gif">
                         <figcaption>District A-1, Downtown Boston</figcaption>
                     </figure>
                 </div>
@@ -208,8 +253,8 @@
     <div class="section">
         <div class="row">
             <div class="col">
-                <h2 class="storyh">Drug Violations by Type and District</h2>
-                <h2>(Click the legend to filter by violation)</h2>
+                <h2 class="storyh">Drug Violations by Type</h2>
+                <h2>(Choose a district to see how violations vary)</h2>
                 <div id="stacked-area-chart"></div>
             </div>
             <div class="col">
@@ -227,7 +272,6 @@
 
                 <figure id="headlines">
                     <img src="img/headlines.png" width="680px" height="580px">
-                    <figcaption>Arrests are still happening for significant Class D drug violations</figcaption>
                 </figure>
             </div>
         </div>
@@ -250,9 +294,35 @@
 
     <div class="section">
         <div class="viz">
-            <h2 class="storyh">Drug Violations by Year and Time of Day</h2>
-            <h2>(Mouse over to see number of violations)</h2>
-            <div id="clock"></div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="col" id="L"></div>
+                </div>
+
+                <div class="col-sm-7">
+                    <h2 id = "clock_title">Drug Related Offenses by Hour of Day -- FIX ALL TEXT</h2>
+                    <div class="row" id="text">
+                        <ul>
+                            <li>Scroll over the clocks to understand when drug related offenses commonly take place</li>
+                            <li>Most occur in the evening, but overall have been decreasing over the past few years</li>
+                        </ul>
+                    </div>
+
+                    <div class="row" id="lower">
+                        <div class="col-1" id="key"></div>
+                        <div class="col-10" id="clocks">
+                            <div class="row" id="clock">
+                                <div class="col-sm-4" id="midL"></div>
+                                <div class="col-sm-4" id="midR"></div>
+                                <div class="col-sm-4" id="R"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -271,6 +341,30 @@
         </div>
     </div>
 
+<div class="section">
+        <div class="viz">
+            <h2 class="storyh">About this Site</h2>
+            <div class="row">
+                <div class="col">
+                    <p>CS171: Data Visualization Final Project<br><br>
+    Created by: Will Finigan, Tim Pugh, Sofia Schreiber, and Charlotte Watts<br><br>
+    In our free time, we like to play basketball and banter with our friends, when we are not reading Edward Tufte's latest work.</p>
+                </div>
+                <div class="col">
+                    <p>References:</p>
+                    <ol>
+                        <li>
+                            test
+                        </li>
+                    </ol>
+
+                </div>
+
+            </div>
+
+        </div>
+</div>
+
 
 </div>
 
@@ -282,6 +376,8 @@
 <script src="js/queue.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
 <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+<script src="js/d3-tip.js"></script>
+
 
 <!--navigation files (https://alvarotrigo.com/fullPage/examples/navigationV.html#firstPage)-->
 <script src="js/navigation.js"></script>
@@ -294,6 +390,8 @@
 <script src="js/areachart.js"></script>
 <script src="js/timeline.js"></script>
 <script src="js/clock.js"></script>
+<script src="js/BigClock.js"></script>
+
 
 </body>
 </html>
