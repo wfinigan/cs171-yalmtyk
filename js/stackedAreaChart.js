@@ -9,9 +9,11 @@ StackedAreaChart = function(_parentElement, _data){
 StackedAreaChart.prototype.initVis = function(){
     let vis = this;
 
-    vis.margin = { top: 40, right: 300, bottom: 100, left: 200 };
+    vis.margin = { top: 50, right: 20, bottom: 100, left: 200 };
 
-    vis.width = $('#stacked-area-chart-col').width() - vis.margin.left - vis.margin.right,
+    vis.windowWidth = $('#stacked-area-chart-col').width()
+
+    vis.width = vis.windowWidth - vis.margin.left - vis.margin.right,
         vis.height = 400 - vis.margin.top - vis.margin.bottom;
 
     vis.first = false;
@@ -23,7 +25,7 @@ StackedAreaChart.prototype.initVis = function(){
         .classed("svg-container", true)
         // Responsive SVG needs these 2 attributes and no width and height attr.
         .attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", "0 0 600 400")
+        .attr("viewBox", "0 0 " + vis.windowWidth +  " " + vis.height + vis.margin.top + vis.margin.bottom)
         // Class to make it responsive.
         .classed("svg-content-responsive", true)
         // .attr("width", vis.width + vis.margin.left + vis.margin.right)
@@ -225,14 +227,25 @@ StackedAreaChart.prototype.updateVis = function() {
         .attr('y', function(d, index) { return 65 + (legendBoxWidth + buffer) * index })
         .attr('class', 'legendLabel')
 
+    vis.svg.append('text')
+        .attr('class', 'legendLabel')
+        .text('Hover for description')
+        .attr('x', -150)
+        .attr('y', 42)
+        .attr('style', 'font-weight: bold');
 
-    console.log(vis.x(parseDateYM('12/2016')))
     vis.svg.append('line')
         .attr('x1', vis.x(parseDateYM('12/2016')))
         .attr('x2', vis.x(parseDateYM('12/2016')))
         .attr('y1', 0)
         .attr('y2', vis.height)
         .attr('class', 'area-chart-time');
+
+    vis.svg.append('text')
+        .attr('class', 'legendLabel')
+        .text('Recreational Marajuana usage goes into effect.')
+        .attr('x', 8 + vis.x(parseDateYM('12/2016')))
+        .attr('y', 10)
 
 
     // Call axis functions with the new domain
