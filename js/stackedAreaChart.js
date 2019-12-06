@@ -19,10 +19,19 @@ StackedAreaChart.prototype.initVis = function(){
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
-        .attr("width", vis.width + vis.margin.left + vis.margin.right)
-        .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
+    // Container class to make it responsive.
+        .classed("svg-container", true)
+        // Responsive SVG needs these 2 attributes and no width and height attr.
+        .attr("preserveAspectRatio", "xMinYMin meet")
+        .attr("viewBox", "0 0 600 400")
+        // Class to make it responsive.
+        .classed("svg-content-responsive", true)
+        // .attr("width", vis.width + vis.margin.left + vis.margin.right)
+        // .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
         .append("g")
         .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
+
+
 
     // Scales and axes
     vis.x = d3.scaleTime()
@@ -161,6 +170,7 @@ StackedAreaChart.prototype.updateVis = function() {
     var legendBoxWidth = 20;
     var buffer = 10;
 
+
     vis.svg.selectAll('rect')
         .data(vis.colorScale.domain())
         .enter()
@@ -171,17 +181,35 @@ StackedAreaChart.prototype.updateVis = function() {
             return vis.colorScale(d)
         })
         .attr('x', -300)
-        .attr('y', function(d, index) { return (legendBoxWidth + buffer) * index })
+        .attr('y', function(d, index) { return 50 + (legendBoxWidth + buffer) * index })
 
-    vis.svg.selectAll('.legendLabel')
+
+    var legends = vis.svg.selectAll('.legendLabel')
         .data(vis.colorScale.domain())
         .enter()
         .append('text')
         .text(function (d) {
-            return toTitleCase(d)
+            if ( toTitleCase(d) == "Class A") {
+               return toTitleCase(d) + " (heroin, morphine, GHB, Special K)";
+            }
+            else if ( toTitleCase(d) == "Class B") {
+               return toTitleCase(d) + " (cocaine, LSD, oxycodone, ecstacy, methamphetamine)";
+            }
+            else if ( toTitleCase(d) == "Class C") {
+                return toTitleCase(d) + " (prescription tranquilizers and narcotics, hallucinogenic drugs)";
+            }
+            else if ( toTitleCase(d) == "Class D") {
+                return toTitleCase(d) + " (marijuana)";
+            }
+            else if ( toTitleCase(d) == "Class E") {
+                return toTitleCase(d) + " (prescription drugs containing weaker amounts of Opiates)";
+            }
+            else if ( toTitleCase(d) == "Other") {
+                return toTitleCase(d);
+            }
         })
         .attr('x', -275)
-        .attr('y', function(d, index) { return 15 + (legendBoxWidth + buffer) * index })
+        .attr('y', function(d, index) { return 65 + (legendBoxWidth + buffer) * index })
         .attr('class', 'legendLabel')
 
     console.log(vis.x(parseDateYM('12/2016')))
