@@ -430,6 +430,10 @@ h2 {
     font-size: 10px;
     font-weight: normal;
 }
+time p {
+        font-size: 10px;
+        font-weight: bold;
+}
 
 .btn {
     border: 1px solid black;
@@ -550,3 +554,4 @@ alignment: center;
 #clock_title{
     margin-left: 10%;
 }
+
