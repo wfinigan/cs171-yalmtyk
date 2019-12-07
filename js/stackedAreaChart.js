@@ -251,6 +251,23 @@ StackedAreaChart.prototype.updateVis = function() {
     .attr('y', 42)
     .attr('style', 'font-weight: bold');
 
+  // text label for the x axis
+  vis.svg.append("text")
+      .attr("transform",
+          "translate(" + (vis.width/1.2) + " ," +
+          (vis.height + vis.margin.top+30) + ")")
+      .style("text-anchor", "middle")
+      .text("Date");
+
+  // text label for the y axis
+  vis.svg.append("text")
+      .attr("transform", "rotate(-90)",
+          "translate(" + (-150) + " ," +
+          (0) + ")")
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Number of Violations");
+
   vis.lineTime = vis.svg.append('line')
     .attr('x1', vis.x(parseDateYM('12/2016')))
     .attr('x2', vis.x(parseDateYM('12/2016')))

@@ -757,3 +757,10 @@ alignment: center;
 .possession-text {
     font-size: 10px;
 }
+#map-photo:hover {
+    position: relative;
+    height: 200%;
+    width: 200%;
+    left: -200px;
+    top: -300px;
+}
