@@ -2,11 +2,11 @@
 
 // settings for navigation
 var myFullpage = new fullpage('#fullpage', {
-    anchors: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+    anchors: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
     sectionsColor: [],
     navigation: true,
     navigationPosition: 'right',
-    navigationTooltips: ['Title', 'Intro', 'Background', 'Map', 'Violations Locations', 'Violations by Class', 'News', 'Analysis', 'Violations by Hour', 'So What?']
+    navigationTooltips: ['Title', 'Intro', 'Background', 'Map', 'Violations by Location', 'Violations by Hour', 'Violations by Class', 'The Drop Off', 'Policing Strategy', 'Intent to Distribute vs Possession,', 'So What?', 'About Us']
 });
 
 

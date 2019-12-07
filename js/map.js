@@ -138,7 +138,7 @@ MapPlot.prototype.updateVis = function() {
 
     vis.svg.append('text')
         .attr('class', 'legendLabel')
-        .text('Hover for description')
+        .text('Hover for description. Click to filter.')
         .attr('x', -5)
         .attr('y', -5)
         .attr('style', 'font-weight: bold');

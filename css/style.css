@@ -744,3 +744,9 @@ alignment: center;
 .timeline.card {
         width: 400px;
 }
+.navbar {
+    font-size: 11px;
+}
+.background-1:hover {
+    color: blue;
+}
