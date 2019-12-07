@@ -10,6 +10,10 @@ h1  {
     font-family:Proza Libre, sans-serif ;
 }
 
+time p {
+    font-size: 14pt;
+}
+
 .section {
     overflow: hidden;
 }
@@ -645,12 +649,9 @@ alignment: center;
     100% { left: 110%; opacity: 0; }
 }
 
-#map_text{
+#map-text{
     margin-top: 40px;
     margin-bottom: 100px;
-    border-width: 2px;
-    border-style:dotted;
-    border-color: #a39e9f;
     padding: 20px;
 }
 
@@ -721,4 +722,10 @@ alignment: center;
     0%   {opacity: 1;}
     90%  {opacity: 1;}
     100% {opacity: 0;}
+}
+
+#clock-text-card {
+    padding: 7px;
+    margin: 10px;
+    margin-left: 15%;
 }

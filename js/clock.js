@@ -101,7 +101,7 @@ var colorScale = d3.scaleQuantize()
     .range([ '#ffeae8','#fca5a2','#fb6961','#cb181d','#a50f15','#67000d' ])
     .domain([0,100])
 
-var div = d3.select("#clock").append("div")
+var divTooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
@@ -132,24 +132,22 @@ var path1 = svg1.selectAll('path')
     .attr('fill', function(d, i) {
         return colorScale(dataset4[i].num);
     })
-    .on("mouseover", function (d, i) {
-        div.transition()
-            .duration(800)
+    .on("mouseover", function(d) {
+        divTooltip.transition()
+            .duration(200)
             .style("opacity", .9);
-        div.html("Year: 2018 " + "<br>" +"Hour: " + hours[i] + "<br>" +
-            "# of Drug Violations: " + d.data.num)
-            .style("left", (d3.event.pageX + 10) + "px")
-            .style("top", (d3.event.pageY - 45) + "px")
+        divTooltip.html(
+            "Year: 2018 " + "<br>" +"Hour: " + hours[i] + "<br>" +
+            "# of Drug Violations: " + d.data.num
+        )
+            .style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY - 28) + "px");
     })
-    .on("mouseout", function (d) {
-        arc1 = d3.arc()
-            .innerRadius(70)
-            .outerRadius(radius1);
-        div.transition()
-            .duration(800)
+    .on("mouseout", function(d) {
+        divTooltip.transition()
+            .duration(500)
             .style("opacity", 0);
     })
-
 
 svg1.append("text")
     .attr("x", (0))
@@ -204,16 +202,16 @@ var path2 = svg2.selectAll('path')
         return colorScale(dataset3[i].num);
     })
     .on("mouseover", function (d, i) {
-        div.transition()
+        divTooltip.transition()
             .duration(800)
             .style("opacity", .9);
-        div.html("Year: 2017 " + "<br>" +"Hour: " + hours[i] + "<br>"+
+        divTooltip.html("Year: 2017 " + "<br>" +"Hour: " + hours[i] + "<br>"+
             "# of Drug Violations: " + d.data.num)
             .style("left", (d3.event.pageX + 10) + "px")
             .style("top", (d3.event.pageY - 45) + "px")
     })
     .on("mouseout", function (d) {
-        div.transition()
+        divTooltip.transition()
             .duration(800)
             .style("opacity", 0);
     })
@@ -272,16 +270,16 @@ var path3 = svg3.selectAll('path')
         return colorScale(dataset2[i].num);
     })
     .on("mouseover", function (d, i) {
-        div.transition()
+        divTooltip.transition()
             .duration(800)
             .style("opacity", .9);
-        div.html("Year: 2016 " + "<br>" +"Hour: " + hours[i] + "<br>"+
+        divTooltip.html("Year: 2016 " + "<br>" +"Hour: " + hours[i] + "<br>"+
             "# of Drug Violations: " + d.data.num)
             .style("left", (d3.event.pageX + 10) + "px")
             .style("top", (d3.event.pageY - 45) + "px")
     })
     .on("mouseout", function (d) {
-        div.transition()
+        divTooltip.transition()
             .duration(800)
             .style("opacity", 0);
     })
