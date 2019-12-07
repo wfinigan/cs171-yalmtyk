@@ -8,7 +8,7 @@ LineGraph = function(_parentElement, _data){
 LineGraph.prototype.initVis = function(){
     var vis = this;
 
-    vis.margin = {top: 20, right: 20, bottom: 30, left: 50},
+    vis.margin = {top: 20, right: 20, bottom: 80, left: 50},
         vis.width = 960 - vis.margin.left - vis.margin.right,
         vis.height = 500 - vis.margin.top - vis.margin.bottom;
 
@@ -103,10 +103,16 @@ LineGraph.prototype.initVis = function(){
         .text('Possession Violations');
 
 
-    // Add the X Axis
     vis.svg.append("g")
+        .attr("class", "axis")
         .attr("transform", "translate(0," + vis.height + ")")
-        .call(d3.axisBottom(vis.x));
+        .call(d3.axisBottom(vis.x)
+            .tickFormat(d3.timeFormat("%B %Y")))
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-65)");
 
     // Add the Y Axis
     vis.svg.append("g")
