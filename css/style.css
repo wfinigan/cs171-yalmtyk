@@ -103,6 +103,7 @@ div.tooltip {
 	font: 12px sans-serif;
 	background: #CC6D6C;
 	border-radius: 8px;
+    pointer-events: none
 }
 
 #area-chart {
