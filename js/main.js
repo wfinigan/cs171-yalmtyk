@@ -85,6 +85,12 @@ function stackedAreaMults(data) {
         stackedAreaChart.wrangleData()
     };
 
+    var classDData = data.filter(function (row) {
+        return (row.OFFENSE_DESCRIPTION == 'CLASS D')
+    });
+
+    new StackedAreaChart('area-class-d', classDData);
+
     return stackedAreaChart
 
 

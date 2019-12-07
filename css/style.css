@@ -1,3 +1,29 @@
+body {
+    font-family: Proza Libre, sans-serif;
+}
+
+h1  {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.card {
+    font-family:Proza Libre, sans-serif ;
+}
+
+.section {
+    overflow: hidden;
+}
+
+#area-class-d {
+    margin: auto;
+}
+
+#area-class-d .area-chart-time,
+#area-class-d .area-chart-time-text
+{
+    opacity: 1;
+}
+
 #overlay {
     position: absolute;
     height: 80%;
@@ -87,11 +113,11 @@ div.tooltip {
     font-size: 12pt;
     width: 80%;
     text-align: left;
-    font-family:"Courier New";
 }
 
 h2 {
     color: black;
+    font-family: 'Cormorant Garamond', sans-serif;
 }
 
 .title {
@@ -122,7 +148,7 @@ h2 {
     top: 75%;
     left: 50%;
     transform: translate(-50%, -150%);
-    font-family: 'Cormorant Garamond', serif;
+    font-family: Proza Libre, sans-serif;;
     color: white;
     font-style: italic;
     background-color:  #67000d;
@@ -541,7 +567,6 @@ time p {
     align: right;
 }
 
-
 @media only screen and (max-width: 500px) {
     /*shows elements in a column*/
     ul{
@@ -634,6 +659,6 @@ alignment: center;
 }
 
 .face{
-        width : 130px;
-        height : 130px;
+    width: 130px;
+    height: 130px;
 }
