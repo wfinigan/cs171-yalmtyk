@@ -6,7 +6,7 @@ var myFullpage = new fullpage('#fullpage', {
     sectionsColor: [],
     navigation: true,
     navigationPosition: 'right',
-    navigationTooltips: ['Title', 'Intro', 'Background', 'Map', 'Violations by Location', 'Violations by Hour', 'Violations by Class', 'The Drop Off', 'Policing Strategy', 'Intent to Distribute vs Possession,', 'So What?', 'About Us']
+    navigationTooltips: ['Title', 'Intro', 'Background', 'Map', 'Violations by Location', 'Violations by Hour', 'Violations by Class', 'The Drop Off', 'Policing Strategy', 'Intent to Distribute vs Possession', 'So What?', 'About']
 });
 
 

@@ -9,7 +9,7 @@ LineGraph.prototype.initVis = function(){
     var vis = this;
 
     vis.margin = {top: 20, right: 20, bottom: 80, left: 50},
-        vis.width = 960 - vis.margin.left - vis.margin.right,
+        vis.width = 800 - vis.margin.left - vis.margin.right,
         vis.height = 500 - vis.margin.top - vis.margin.bottom;
 
 // parse the date / time

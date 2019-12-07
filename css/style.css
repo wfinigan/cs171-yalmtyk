@@ -750,3 +750,6 @@ alignment: center;
 .background-1:hover {
     color: blue;
 }
+.possession-text {
+    font-size: 10px;
+}

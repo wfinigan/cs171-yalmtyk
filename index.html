@@ -66,7 +66,7 @@
                 <a class="nav-link" href="#11">So What?</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#12">About Us</a>
+                <a class="nav-link" href="#12">About</a>
             </li>
 
         </ul>
@@ -77,7 +77,7 @@
         <div class="title">
             <p id="title-text">The Impact of the Legalization of Recreational Marijuana on Boston Drug Incident
                 Reports</p>
-            <div><p id="subtitle-text">How has the type, prevalence, and location of drug violations in Boston changed
+            <div><p id="subtitle-text">How have the type, prevalence, and location of drug violations in Boston changed
                 in response to the legalization of recreational marijuana? Let's explore!</p>
                 <p id="subtitle-text-1" onclick="document.location='#2';return false;">↓</p></div>
             <div id="loadingEl">
@@ -242,8 +242,8 @@
                 <div id="map"></div>
             </div>
             <div class="card" id="map-text">
-                <h5 class="card-title">Text title</h5>
-                <div class="card-body">Text body</div>
+                <h5 class="card-title">Map of Boston Drug Violations</h5>
+                <div class="card-body">Look at the map to the left. What do notice about which regions have the most drug violations? Does this vary based on drug class? What do you find surprising about this? </div>
             </div>
         </div>
     </div>
@@ -293,7 +293,7 @@
                 </div>
 
                 <div class="col-sm-8">
-                    <h1 id="clock_title">Drug Related Offenses by Hour of Day -- FIX ALL TEXT</h1>
+                    <h1 id="clock_title">Drug Related Offenses by Hour of Day</h1>
                     <div class="row">
                         <div class="card text-card" id="clock-text-card">
                             <h5 class="card-title">Exploring by time of day</h5>
@@ -304,7 +304,10 @@
                                     </li>
                                     <li>What do you notice about when offenses are most prevalent?
                                     </li>
-                                    <li>Most occur in the evening, but overall have been decreasing over the past few
+                                    <li>While the trend of most violations occur in the evening has remained relatively
+                                        consistent over the years, as you can see by the decreasing darkness of the
+                                        color from year to year, the overall number of violations has been decreasing
+                                        over the past few
                                         years.
                                     </li>
                                 </ul>
@@ -359,8 +362,9 @@
         <div id="overlay" class="card">
             <div class="overlay-content">
                 <h5 class="card-title">Exploring changes in drug violations over time by class</h5>
-                Now that we have explored drug violations by geographic district, on this page, we'll explore how drug
-                violations have changed <i> over time.</i>
+                Now that we have explored drug violations by geographic district and by hour, on this page, we'll
+                explore how drug
+                violations have changed <i> by type.</i>
                 <br>
                 <button type="button" class="btn btn-outline-dark" id="show-area-chart">Explore</button>
             </div>
@@ -378,7 +382,7 @@
                 <div class="col">
                     <div class="card" id="map-text">
                         <h5 class="card-title">Decrease in Class D Violations: December 2016</h5>
-                        <div class="card-body">AWe see a large decrease in number of
+                        <div class="card-body">We see a large decrease in number of
                             violations from 2016 to 2017 and 2018. The total number of Class D Drug violations decreased
                             from 677 in 2016 to 316 in 2017 and
                             344 in 2018. The most significant decrease occurs in December
@@ -441,121 +445,143 @@
 
     <div class="section">
         <div class="viz">
+            <h1 id="linegraph_title">Frequency of Marijuana Violations by Type Over Time</h1>
             <div class="row">
                 <div class="col-sm-8">
-                    <h1 id="linegraph_title">Frequency of Marijuana Violations by Type Over Time</h1>
                     <div id="line-graph-area"></div>
                 </div>
 
                 <div class="col-sm-4">
 
-                    <div class="row" id="text">
-                        <ul>
-                            <li>Text describing the graphic</li>
-                            <li>More text</li>
-                        </ul>
+                    <div class="col">
+                        <div class="card" id="possession-text">
+                            <h5 class="card-title">Decrease in Class D Violations: December 2016</h5>
+                            <div class="card-body">
+                                <div> What do you notice about the relationship over time in possession versus
+                                    decrease in intent to distribute violations?
+                                    Here, it is clear that both intent to distribute and possession violations have
+                                    decreased in absolute terms over the period January 2016-October 2018. However, the
+                                    number of possession violations has decreased to a much greater degree than intent
+                                    to
+                                    distribute violations. Intent to distribute violations have remained relatively
+                                    constant
+                                    over the time frame while possession violations <i>have been cut almost in half.<i>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="viz">
-            <h1 class='storyh'>Decrease in Class D Possession Violations</h1>
-            <p class='intro_text'>
-                The majority of this decrease has occurred at the possession level rather than the intent to distribute
-                level. This is illustrated in the clock visualization as conventional wisdom dictates that the majority
-                of possession charges would occur later in the afternoon/evening while more serious intent to distribute
-                charges could occur at any time.
-            </p>
-        </div>
-    </div>
-
-    <div class="section">
-                
-        <div class="viz">
-                        <h1 class="story">About this Site</h1>
-                        
-            <div class="row">
-                                
-                <div class="col">
-                                        <p style="font-size:21px;">CS171: Data Visualization Final Project<br><br>
-                        Created by: <br>Will Finigan, Tim Pugh, Sofia Schreiber, and Charlotte Watts<br>
-                        <img class="face" src="img/0.jpeg">
-                        <img class="face" src="img/0-1.jpeg">
-                        <img class="face" src="img/0-3.jpeg">
-                        <img class="face" src="img/0-2.jpeg"><br><br>
-                        In our free time, we like to play basketball and banter with our friends, when we are not
-                    reading
-                    Edward Tufte's latest work.</p>
-                                    
-                </div>
-                                
-                <div class="col">
-                                        <p>References:</p>
-                                        
-                    <ol>
-                                                
-                        <li>
-                                                        test
-                                                    
-                        </li>
-                                            
-                    </ol>
-
-                                    
+                <div class="section">
+                    <div class="viz">
+                        <h1 class='storyh'>Conclusion: In Summary</h1>
+                        <p class='intro_text'>
+                            Looking at the above visualizations we see significant trends in our data. These trends
+                            exist contrary to the opinion of Walpole police chief John Carmichael discussed
+                            earlier.  Class D violations have gone down significantly since the legalization of
+                            Marijuana in December of 2016. Looking more closely within Class D violations by offense
+                            type, we see that possession of Marjiuana violations have decreased the most while intent to
+                            distribute marijuana violations have remained fairly constant. This trend aligns with
+                            District A-1 & A-15 police chief Kenneth Fong. Since the changes in the law, cops have
+                            focused less on giving violations to people for possession charges and more on educating
+                            violators on the changes in the law. It will be interesting to see how these changes
+                            continue as more Cannabis Cafes start opening in the Boston area in the coming years.
+                        </p>
+                    </div>
                 </div>
 
-                            
+                <div class="section">
+                            
+                    <div class="viz">
+                                    <h1 class="story">About this Site</h1>
+                                    
+                        <div class="row">
+                                            
+                            <div class="col">
+                                                    <p style="font-size:21px;">CS171: Data Visualization Final
+                                Project<br><br>
+                                    Created by: <br>Will Finigan, Tim Pugh, Sofia Schreiber, and Charlotte Watts<br>
+                                    <img class="face" src="img/0.jpeg">
+                                    <img class="face" src="img/0-1.jpeg">
+                                    <img class="face" src="img/0-3.jpeg">
+                                    <img class="face" src="img/0-2.jpeg"><br><br>
+                                    In our free time, we like to play basketball and banter with our friends, when we
+                                are not
+                                reading
+                                Edward Tufte's latest work.</p>
+                                                
+                            </div>
+                                            
+                            <div class="col">
+                                                    <p>References:</p>
+                                                    
+                                <ol>
+                                                            
+                                    <li>
+                                        <a href="https://www.masslive.com/news/2018/01/when_can_people_in_massachuset.html">https://www.masslive.com/news/2018/01/when_can_people_in_massachuset.html</a>
+                                                                
+                                    </li>
+                                    <li>
+                                        <a href="https://www.americaninno.com/boston/bostinno-bytes/confused-about-cannabis-heres-a-timeline-of-the-rules-in-mass/">https://www.americaninno.com/boston/bostinno-bytes/confused-about-cannabis-heres-a-timeline-of-the-rules-in-mass/</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.bostonglobe.com/metro/2018/07/27/pot/wVrWHpzEFHHmS5MsA1IgjK/story.html">https://www.bostonglobe.com/metro/2018/07/27/pot/wVrWHpzEFHHmS5MsA1IgjK/story.html</a>
+                                    </li>
+                                                        
+                                </ol>
+
+                                                
+                            </div>
+
+                                        
+                        </div>
+
+                                
+                    </div>
+                </div>
             </div>
 
-                    
-        </div>
-    </div>
-</div>
+
+            <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/d3.min.js"></script>
+            <script src="js/queue.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+            <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+            <script src="js/d3-tip.js"></script>
 
 
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/d3.min.js"></script>
-<script src="js/queue.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-<script src="https://hammerjs.github.io/dist/hammer.js"></script>
-<script src="js/d3-tip.js"></script>
+            <!--navigation files (https://alvarotrigo.com/fullPage/examples/navigationV.html#firstPage)-->
+            <script src="js/navigation.js"></script>
 
+            <!-- custom visualization files -->
+            <script src="js/main.js"></script>
+            <script src="js/stackedAreaChart.js"></script>
+            <script src="js/map.js"></script>
+            <script src="js/smallMult.js"></script>
+            <script src="js/areachart.js"></script>
+            <script src="js/timeline.js"></script>
+            <script src="js/clock.js"></script>
+            <script src="js/BigClock.js"></script>
+            <script src="js/linegraph.js"></script>
+            <script src="js/wow.min.js"></script>
+            <script>
+                new WOW().init();
+            </script>
+            <script>
+                var myVar;
 
-<!--navigation files (https://alvarotrigo.com/fullPage/examples/navigationV.html#firstPage)-->
-<script src="js/navigation.js"></script>
+                function myFunction() {
+                    myVar = setTimeout(showPage, 3000);
 
-<!-- custom visualization files -->
-<script src="js/main.js"></script>
-<script src="js/stackedAreaChart.js"></script>
-<script src="js/map.js"></script>
-<script src="js/smallMult.js"></script>
-<script src="js/areachart.js"></script>
-<script src="js/timeline.js"></script>
-<script src="js/clock.js"></script>
-<script src="js/BigClock.js"></script>
-<script src="js/linegraph.js"></script>
-<script src="js/wow.min.js"></script>
-<script>
-    new WOW().init();
-</script>
-<script>
-    var myVar;
+                }
 
-    function myFunction() {
-        myVar = setTimeout(showPage, 3000);
-
-    }
-
-    function showPage() {
-        document.getElementById("loader").style.display = "none";
-    }
-</script>
+                function showPage() {
+                    document.getElementById("loader").style.display = "none";
+                }
+            </script>
 
 
 </body>
