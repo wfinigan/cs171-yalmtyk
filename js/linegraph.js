@@ -141,4 +141,21 @@ LineGraph.prototype.initVis = function() {
   vis.svg.append("g")
     .call(d3.axisLeft(vis.y));
 
+  // text label for the x axis
+  vis.svg.append("text")
+      .attr("transform",
+          "translate(" + (vis.width/2) + " ," +
+          (vis.height + vis.margin.top+60) + ")")
+      .style("text-anchor", "middle")
+      .text("Date");
+
+  // text label for the y axis
+  vis.svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - vis.margin.left)
+      .attr("x",0 - (vis.height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Number of Violations");
+
 };
