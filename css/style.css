@@ -10,6 +10,10 @@ h1  {
     font-family:Proza Libre, sans-serif ;
 }
 
+time p {
+    font-size: 14pt;
+}
+
 .section {
     overflow: hidden;
 }
@@ -99,6 +103,7 @@ div.tooltip {
 	font: 12px sans-serif;
 	background: #CC6D6C;
 	border-radius: 8px;
+    pointer-events: none
 }
 
 #area-chart {
@@ -645,12 +650,9 @@ alignment: center;
     100% { left: 110%; opacity: 0; }
 }
 
-#map_text{
+#map-text{
     margin-top: 40px;
     margin-bottom: 100px;
-    border-width: 2px;
-    border-style:dotted;
-    border-color: #a39e9f;
     padding: 20px;
 }
 
@@ -722,6 +724,23 @@ alignment: center;
     90%  {opacity: 1;}
     100% {opacity: 0;}
 }
-#huh {
 
+
+#clock-text-card {
+    padding: 7px;
+    margin: 10px;
+    margin-left: 15%;
+}
+.textt {
+    font-size: 18px;
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 7%;
+}
+.changeslide {
+    margin-top: 10px;
+}
+.timeline.card {
+        width: 400px;
 }
