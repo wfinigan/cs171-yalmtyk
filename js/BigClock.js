@@ -2,9 +2,9 @@
 //(ignore "count")
 //2016 by hour of day
 var dataset2 = [{
-    count: 25,
-    num: 15
-  },
+  count: 25,
+  num: 15
+},
   {
     count: 25,
     num: 10
@@ -101,9 +101,9 @@ var dataset2 = [{
 
 //2017 by hour of day
 var dataset3 = [{
-    count: 25,
-    num: 4
-  },
+  count: 25,
+  num: 4
+},
   {
     count: 25,
     num: 9
@@ -200,9 +200,9 @@ var dataset3 = [{
 
 //2018 by hour of day
 var dataset4 = [{
-    count: 25,
-    num: 6
-  },
+  count: 25,
+  num: 6
+},
   {
     count: 25,
     num: 11
@@ -317,225 +317,225 @@ var radius3 = radius2 / 2 + 20;
 
 
 var colorScale = d3.scaleQuantize()
-  .range(['#ffeae8', '#fca5a2', '#fb6961', '#cb181d', '#a50f15', '#67000d'])
-  .domain([0, 100])
+    .range(['#ffeae8', '#fca5a2', '#fb6961', '#cb181d', '#a50f15', '#67000d'])
+    .domain([0, 100])
 
-var div = d3.select("#L").append("div")
-  .attr("class", "tooltip")
-  .style("opacity", 0);
+var divTooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
 var svg = d3.select('#L')
-  .append('svg')
-  .attr('width', width + margin.right + margin.left)
-  .attr('height', height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .append('svg')
+    .attr('width', width + margin.right + margin.left)
+    .attr('height', height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var svg1 = svg.append('g')
-  .attr('transform', 'translate(' + (width / 2) +
-    ',' + (height / 2) + ')');
+    .attr('transform', 'translate(' + (width / 2) +
+        ',' + (height / 2) + ')');
 var svg2 = svg.append('g')
-  .attr('transform', 'translate(' + (width / 2) +
-    ',' + (height / 2) + ')');
+    .attr('transform', 'translate(' + (width / 2) +
+        ',' + (height / 2) + ')');
 var svg3 = svg.append('g')
-  .attr('transform', 'translate(' + (width / 2) +
-    ',' + (height / 2) + ')');
+    .attr('transform', 'translate(' + (width / 2) +
+        ',' + (height / 2) + ')');
 var svg4 = svg.append('g')
-  .attr('transform', 'translate(' + (width / 2) +
-    ',' + (height / 2) + ')');
+    .attr('transform', 'translate(' + (width / 2) +
+        ',' + (height / 2) + ')');
 
 var arc1 = d3.arc()
-  .innerRadius(radius1 - donutWidth)
-  .outerRadius(radius1);
+    .innerRadius(radius1 - donutWidth)
+    .outerRadius(radius1);
 var arc2 = d3.arc()
-  .innerRadius(radius2 - donutWidth)
-  .outerRadius(radius2);
+    .innerRadius(radius2 - donutWidth)
+    .outerRadius(radius2);
 var arc3 = d3.arc()
-  .innerRadius(radius3 - donutWidth)
-  .outerRadius(radius3);
+    .innerRadius(radius3 - donutWidth)
+    .outerRadius(radius3);
 
 var pie = d3.pie()
-  .value(function(d) {
-    return d.count;
-  })
-  .sort(null);
+    .value(function(d) {
+      return d.count;
+    })
+    .sort(null);
 
 var path1 = svg1.selectAll('path')
-  .data(pie(dataset4))
-  .enter()
-  .append('path')
-  .attr('d', arc1)
-  .attr("stroke-width", 2)
-  .attr("stroke", "white")
-  .attr('fill', function(d, i) {
-    return colorScale(dataset4[i].num);
-  })
-  .on("mouseover", function(d, i) {
-    div.transition()
-      .duration(800)
-      .style("opacity", .9);
-    div.html("Year: 2018 " + "<br>" + "Hour: " + hours[i] + "<br>" +
-        "# of Drug Violations: " + d.data.num)
-      .style("left", (d3.event.pageX + 10) + "px")
-      .style("top", (d3.event.pageY - 45) + "px")
-  })
-  .on("mouseout", function(d) {
-    div.transition()
-      .duration(800)
-      .style("opacity", 0);
-  })
+    .data(pie(dataset4))
+    .enter()
+    .append('path')
+    .attr('d', arc1)
+    .attr("stroke-width", 2)
+    .attr("stroke", "white")
+    .attr('fill', function(d, i) {
+      return colorScale(dataset4[i].num);
+    })
+    .on("mouseover", function(d, i) {
+      divTooltip.transition()
+          .duration(800)
+          .style("opacity", .9);
+      divTooltip.html("Year: 2018 " + "<br>" + "Hour: " + hours[i] + "<br>" +
+          "# of Drug Violations: " + d.data.num)
+          .style("left", (d3.event.pageX + 10) + "px")
+          .style("top", (d3.event.pageY - 45) + "px")
+    })
+    .on("mouseout", function(d) {
+      divTooltip.transition()
+          .duration(800)
+          .style("opacity", 0);
+    })
 
 var path2 = svg2.selectAll('path')
-  .data(pie(dataset3))
-  .enter()
-  .append('path')
-  .attr("stroke-width", 2)
-  .attr("stroke", "white")
-  .attr('d', arc2)
-  .attr('fill', function(d, i) {
-    return colorScale(dataset3[i].num);
-  })
-  .on("mouseover", function(d, i) {
-    div.transition()
-      .duration(800)
-      .style("opacity", .9);
-    div.html("Year: 2017 " + "<br>" + "Hour: " + hours[i] + "<br>" +
-        "# of Drug Violations: " + d.data.num)
-      .style("left", (d3.event.pageX + 10) + "px")
-      .style("top", (d3.event.pageY - 45) + "px")
-  })
-  .on("mouseout", function(d) {
-    div.transition()
-      .duration(800)
-      .style("opacity", 0);
-  })
+    .data(pie(dataset3))
+    .enter()
+    .append('path')
+    .attr("stroke-width", 2)
+    .attr("stroke", "white")
+    .attr('d', arc2)
+    .attr('fill', function(d, i) {
+      return colorScale(dataset3[i].num);
+    })
+    .on("mouseover", function(d, i) {
+      divTooltip.transition()
+          .duration(800)
+          .style("opacity", .9);
+      divTooltip.html("Year: 2017 " + "<br>" + "Hour: " + hours[i] + "<br>" +
+          "# of Drug Violations: " + d.data.num)
+          .style("left", (d3.event.pageX + 10) + "px")
+          .style("top", (d3.event.pageY - 45) + "px")
+    })
+    .on("mouseout", function(d) {
+      divTooltip.transition()
+          .duration(800)
+          .style("opacity", 0);
+    })
 var path3 = svg3.selectAll('path')
-  .data(pie(dataset2))
-  .enter()
-  .append('path')
-  .attr('d', arc3)
-  .attr("stroke-width", 2)
-  .attr("stroke", "white")
-  .attr('fill', function(d, i) {
-    return colorScale(dataset2[i].num);
-  })
-  .on("mouseover", function(d, i) {
-    div.transition()
-      .duration(800)
-      .style("opacity", .9);
-    div.html("Year: 2016 " + "<br>" + "Hour: " + hours[i] + "<br>" +
-        "# of Drug Violations: " + d.data.num)
-      .style("left", (d3.event.pageX + 10) + "px")
-      .style("top", (d3.event.pageY - 45) + "px")
-  })
-  .on("mouseout", function(d) {
-    div.transition()
-      .duration(800)
-      .style("opacity", 0);
-  })
+    .data(pie(dataset2))
+    .enter()
+    .append('path')
+    .attr('d', arc3)
+    .attr("stroke-width", 2)
+    .attr("stroke", "white")
+    .attr('fill', function(d, i) {
+      return colorScale(dataset2[i].num);
+    })
+    .on("mouseover", function(d, i) {
+      divTooltip.transition()
+          .duration(800)
+          .style("opacity", .9);
+      divTooltip.html("Year: 2016 " + "<br>" + "Hour: " + hours[i] + "<br>" +
+          "# of Drug Violations: " + d.data.num)
+          .style("left", (d3.event.pageX + 10) + "px")
+          .style("top", (d3.event.pageY - 45) + "px")
+    })
+    .on("mouseout", function(d) {
+      divTooltip.transition()
+          .duration(800)
+          .style("opacity", 0);
+    })
 
 
 svg.append("text")
-  .attr("x", (width / 2))
-  .attr("y", (height / 3))
-  .attr("text-anchor", "middle")
-  .style("font-size", "20px")
-  .text("2016");
+    .attr("x", (width / 2))
+    .attr("y", (height / 3))
+    .attr("text-anchor", "middle")
+    .style("font-size", "20px")
+    .text("2016");
 svg.append("text")
-  .attr("x", (width / 2))
-  .attr("y", (height / 5))
-  .attr("text-anchor", "middle")
-  .style("font-size", "20px")
-  .text("2017");
+    .attr("x", (width / 2))
+    .attr("y", (height / 5))
+    .attr("text-anchor", "middle")
+    .style("font-size", "20px")
+    .text("2017");
 svg.append("text")
-  .attr("x", (width / 2))
-  .attr("y", (height / 20))
-  .attr("text-anchor", "middle")
-  .style("font-size", "20px")
-  .text("2018");
+    .attr("x", (width / 2))
+    .attr("y", (height / 20))
+    .attr("text-anchor", "middle")
+    .style("font-size", "20px")
+    .text("2018");
 
 var w = 70,
-  h = 140;
+    h = 140;
 var keyTitle = d3.select("#key")
-  .append("text")
-  .attr("x", 0)
-  .attr("y", 5)
-  .attr("text-anchor", "middle")
-  .style("font-size", "10px")
-  .style("text-decoration", "underline")
-  .text("#Violations")
+    .append("text")
+    .attr("x", 0)
+    .attr("y", 5)
+    .attr("text-anchor", "middle")
+    .style("font-size", "10px")
+    .style("text-decoration", "underline")
+    .text("#Violations")
 
 
 var key = d3.select("#key")
-  .append("svg")
-  .attr("width", w)
-  .attr("height", h);
+    .append("svg")
+    .attr("width", w)
+    .attr("height", h);
 
 var legend = key.append("defs")
-  .append("svg:linearGradient")
-  .attr("id", "gradient")
-  .attr("x1", "100%")
-  .attr("y1", "100%")
-  .attr("x2", "100%")
-  .attr("y2", "0%")
-  .attr("spreadMethod", "pad");
+    .append("svg:linearGradient")
+    .attr("id", "gradient")
+    .attr("x1", "100%")
+    .attr("y1", "100%")
+    .attr("x2", "100%")
+    .attr("y2", "0%")
+    .attr("spreadMethod", "pad");
 
 legend.append("stop")
-  .attr("offset", "0%")
-  .attr("stop-color", "#fff5f0")
-  .attr("stop-opacity", 1);
+    .attr("offset", "0%")
+    .attr("stop-color", "#fff5f0")
+    .attr("stop-opacity", 1);
 
 
 legend.append("stop")
-  .attr("offset", "20%")
-  .attr("stop-color", "#fca5a2")
-  .attr("stop-opacity", 1);
+    .attr("offset", "20%")
+    .attr("stop-color", "#fca5a2")
+    .attr("stop-opacity", 1);
 
 legend.append("stop")
-  .attr("offset", "40%")
-  .attr("stop-color", "#fb6961")
-  .attr("stop-opacity", 1);
+    .attr("offset", "40%")
+    .attr("stop-color", "#fb6961")
+    .attr("stop-opacity", 1);
 legend.append("stop")
-  .attr("offset", "60%")
-  .attr("stop-color", "#cb181d")
-  .attr("stop-opacity", 1);
+    .attr("offset", "60%")
+    .attr("stop-color", "#cb181d")
+    .attr("stop-opacity", 1);
 
 legend.append("stop")
-  .attr("offset", "80%")
-  .attr("stop-color", "#a50f15")
-  .attr("stop-opacity", 1);
+    .attr("offset", "80%")
+    .attr("stop-color", "#a50f15")
+    .attr("stop-opacity", 1);
 
 legend.append("stop")
-  .attr("offset", "100%")
-  .attr("stop-color", "#67000d")
-  .attr("stop-opacity", 1);
+    .attr("offset", "100%")
+    .attr("stop-color", "#67000d")
+    .attr("stop-opacity", 1);
 
 
 
 
 key.append("rect")
-  .attr("width", 40)
-  .attr("height", h)
-  .style("fill", "url(#gradient)")
-  .attr("transform", "translate(-20,10)");
+    .attr("width", 40)
+    .attr("height", h)
+    .style("fill", "url(#gradient)")
+    .attr("transform", "translate(-20,10)");
 
 var y = d3.scaleLinear()
-  .range([-20, h - 10])
-  .domain([100, 0]);
+    .range([-20, h - 10])
+    .domain([100, 0]);
 
 var yAxis = d3.axisRight()
-  .scale(y)
-  .ticks(5);
+    .scale(y)
+    .ticks(5);
 
 key.append("g")
-  .attr("class", "y axis")
-  .attr("transform", "translate(20,30)")
-  .call(yAxis)
-  .append("text")
-  .attr("transform", "rotate(-90)")
-  .attr("y", 0)
-  .attr("dy", ".71em")
-  .style("text-anchor", "end")
-  .text("axis title");
+    .attr("class", "y axis")
+    .attr("transform", "translate(20,30)")
+    .call(yAxis)
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("axis title");
 
 
 //evenly spaced number around clock
@@ -555,9 +555,9 @@ for (i = 0; i < 24; i++) {
 
 for (i = 0; i < 24; i++) {
   svg.append("text")
-    .attr("x", nums[i].x + 195)
-    .attr("y", nums[i].y + 200)
-    .attr("text-anchor", "middle")
-    .style("font-size", "20px")
-    .text(hours[i])
+      .attr("x", nums[i].x + 195)
+      .attr("y", nums[i].y + 200)
+      .attr("text-anchor", "middle")
+      .style("font-size", "20px")
+      .text(hours[i])
 }
