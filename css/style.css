@@ -764,3 +764,6 @@ alignment: center;
     left: -200px;
     top: -300px;
 }
+#answer {
+    margin-top: 20px;
+}

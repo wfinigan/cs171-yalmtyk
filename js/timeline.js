@@ -88,7 +88,7 @@
 
     function moreInfo() {
       if (action1 % 2 == 0) {
-        document.getElementById("first").innerHTML = "Nearly 54 percent of Massachusetts voters approved Question 4, a ballot measure that called for legalizing recreational marijuana while regulating it like alcoholic beverages. According to the measure, a commission would also be created to regulate marijuana in the state.";
+        document.getElementById("first").innerHTML = "Almost 54 percent of Massachusetts voters approved Question 4, legalizing recreational marijuana with regulations similar to alcoholic beverages overseen by a commission.";
         document.getElementById("nov8").innerHTML = "unfold_less";
         document.getElementById("l1").innerHTML = "Learn More.";
         setEqualHeights(el, -500);
@@ -110,7 +110,7 @@
     function moreInfo2() {
       if (action2 % 2 == 0) {
 
-        document.getElementById("second").innerHTML = "Individuals who are 21 years and older can possess up to 10 ounces of marijuana inside their home and up to one ounce outside.";
+        document.getElementById("second").innerHTML = "Individuals who are 21 years and older can have up to 10 ounces of cannabis within their homes and one ounce in public.";
         document.getElementById("dec15").innerHTML = "unfold_less";
         document.getElementById("l2").innerHTML = "Learn More.";
         setEqualHeights(el, -500);
@@ -132,7 +132,7 @@
     function moreInfo3() {
       if (action3 % 2 == 0) {
 
-        document.getElementById("third").innerHTML = "The Cannabis Control Commission approves key adult-use regulations outlining medical marijuana inventory quotas, an economic empowerment program, a licensing and fee structure, and more.";
+        document.getElementById("third").innerHTML = "The Cannabis Control Commission passes regulations regarding medical marijuana quotas, an 'economic empowerment' program, a licensing framework, and more.";
         document.getElementById("l3").innerHTML = "Learn more.";
         document.getElementById("mar6").innerHTML = "unfold_less";
         setEqualHeights(el, -500);
@@ -152,7 +152,7 @@
     function moreInfo4() {
       if (action4 % 2 == 0) {
         document.getElementById("l4").innerHTML = "Learn more.";
-        document.getElementById("fourth").innerHTML = "Applications open up for marijuana establishment licenses. Priority is given to already registered marijuana dispensaries (through the previously established medical marijuana licensing program) or Economic Empowerment Applicants, who demonstrated they could benefit communities disproportionately impacted by marijuana enforcement.";
+        document.getElementById("fourth").innerHTML = "Marijuana establishment license applications open. Priority is given to previously registered medical marijuana dispensaries or Economic Empowerment Applicants, who showed the Commission they could help groups disproportionately affected by marijuana prohibition.";
         document.getElementById("april2").innerHTML = "unfold_less";
         setEqualHeights(el, -500);
         action4++;
@@ -171,7 +171,7 @@
     function moreInfo5() {
       if (action5 % 2 == 0) {
         document.getElementById("l5").innerHTML = "Learn more.";
-        document.getElementById("fifth").innerHTML = "The Cannabis Control Commission launches social equity program, aimed to give work opportunities in the cannabis industry to those who had been disproportionately impacted by its prohibition.";
+        document.getElementById("fifth").innerHTML = "The Cannabis Control Commission begins a social equity program to give employment opportunities in the marijuana industry to individuals and groups who had been disproportionately affected by previous enforcement.";
         document.getElementById("june28").innerHTML = "unfold_less";
         setEqualHeights(el, -500);
         action5++;
@@ -191,7 +191,7 @@
       if (action6 % 2 == 0) {
         document.getElementById("l6").innerHTML = "Learn more.";
         document.getElementById("oct4").innerHTML = "unfold_less";
-        document.getElementById("sixth").innerHTML = "Four marijuana shops have their license applications approved -- one to a medical dispensary in Northampton owned by New England Treatment Access, and the other three licenses went to Cultivate Holdings.";
+        document.getElementById("sixth").innerHTML = "License applications are authorized for four marijuana shops -- one medical shop in Northampton (belonging to New England Treatment Access), and the other three others to Cultivate Holdings.";
         setEqualHeights(el, -500);
         action6++;
       } else {
@@ -210,7 +210,7 @@
       if (action7 % 2 == 0) {
         document.getElementById("l7").innerHTML = "Learn more.";
         document.getElementById("nov20").innerHTML = "unfold_less";
-        document.getElementById("seventh").innerHTML = "Two retail marijuana stores open to the public. Separately, the Cannabis Control Commission authorized two independent testing laboratories, MCR Labs and CDX Analytics, to begin testing marijuana and marijuana products for the adult-use cannabis industry.";
+        document.getElementById("seventh").innerHTML = "Two retail marijuana stores begin to sell to the public. Also, the Cannabis Control Commission allows two testing laboratories to begin experimenting with cannabis products.";
         setEqualHeights(el, -500);
         action7++;
       } else {

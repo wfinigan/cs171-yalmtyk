@@ -261,9 +261,9 @@ StackedAreaChart.prototype.updateVis = function() {
 
   // text label for the y axis
   vis.svg.append("text")
-      .attr("transform", "rotate(-90)",
-          "translate(" + (-150) + " ," +
-          (0) + ")")
+      .attr("transform", "rotate(-90)" + " " +
+          "translate(" + -((vis.height / 2)) + " ," +
+          (-45) + ")")
       .attr("dy", "1em")
       .style("text-anchor", "middle")
       .text("Number of Violations");
