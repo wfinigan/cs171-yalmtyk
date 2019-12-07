@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/clock_style.css">
 </head>
-<body>
+<body onload="myFunction()">
 
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -73,6 +73,7 @@
                 Reports</p>
             <div><p id="subtitle-text">How has the type, prevalence, and location of drug violations in Boston changed in response to the legalization of recreational marijuana? Let's explore!</p>
                 <p id="subtitle-text-1" onclick="document.location='#2';return false;" >↓</p></div>
+            <div id="loadingEl"><div id="loader" id='hideMe'></div></div>
 
             <img src="https://www.bostonmagazine.com/wp-content/uploads/sites/2/2016/09/police-lights-1.jpg" alt="">
         </div>
@@ -451,6 +452,18 @@
 <script src="js/wow.min.js"></script>
 <script>
     new WOW().init();
+</script>
+<script>
+    var myVar;
+
+    function myFunction() {
+        myVar = setTimeout(showPage, 3000);
+
+    }
+
+    function showPage() {
+        document.getElementById("loader").style.display = "none";
+    }
 </script>
 
 
