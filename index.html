@@ -567,6 +567,21 @@
   <script src="js/BigClock.js"></script>
   <script src="js/linegraph.js"></script>
   <script src="js/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+  <script>
+    var myVar;
+
+    function myFunction() {
+      myVar = setTimeout(showPage, 3000);
+
+    }
+    function showPage() {
+      document.getElementById("loader").style.display = "none";
+    }
+  </script>
+
 
 </body>
 
