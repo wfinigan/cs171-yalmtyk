@@ -191,7 +191,7 @@
       if (action6 % 2 == 0) {
         document.getElementById("l6").innerHTML = "Learn more.";
         document.getElementById("oct4").innerHTML = "unfold_less";
-        document.getElementById("sixth").innerHTML = "License applications are authorized for four marijuana shops -- one medical shop in Northampton (belonging to New England Treatment Access), and the other three others to Cultivate Holdings.";
+        document.getElementById("sixth").innerHTML = "License applications are authorized for four marijuana shops — one medical shop in Northampton (belonging to New England Treatment Access), and the other three others to Cultivate Holdings.";
         setEqualHeights(el, -500);
         action6++;
       } else {

@@ -100,27 +100,27 @@ LineGraph.prototype.initVis = function() {
     .text('Legend');
 
   vis.svg.append('rect')
-    .attr('x', vis.width - 250)
+    .attr('x', vis.width - 260)
     .attr('y', 85)
     .attr('width', 30)
     .attr('height', 4)
     .attr('fill', '#a50f15')
 
   vis.svg.append("text")
-    .attr("x", vis.width - 210)
+    .attr("x", vis.width - 220)
     .attr("y", 85)
     .attr("dy", ".35em")
     .text('Intent to Distribute Violations');
 
   vis.svg.append('rect')
-    .attr('x', vis.width - 250)
+    .attr('x', vis.width - 260)
     .attr('y', 120)
     .attr('width', 30)
     .attr('height', 4)
     .attr('fill', '#fcbba1')
 
   vis.svg.append("text")
-    .attr("x", vis.width - 210)
+    .attr("x", vis.width - 220)
     .attr("y", 120)
     .attr("dy", ".35em")
     .text('Possession Violations');
