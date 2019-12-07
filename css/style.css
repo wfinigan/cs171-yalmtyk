@@ -1,8 +1,52 @@
+#overlay {
+    position: absolute;
+    height: 80%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 10px;
+}
+
+.overlay-hide {
+    opacity: 0;
+    pointer-events: none
+}
+
+#hint {
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    margin: auto;
+    width: 30%;
+}
+
+#hint-text {
+    font-weight: lighter;
+    font-size: 9pt;
+    opacity: 0;
+}
+
+#show-area-chart {
+    margin: auto;
+    margin-top: 10px;
+}
+.overlay-content {
+    margin: auto;
+}
+
+.story {
+    margin-top: 10px;
+}
+
 .area-chart-time {
     stroke: #1b1e21;
     stroke-width: 4;
+    opacity: 0;
 }
 
+.area-chart-time-text {
+    opacity: 0;
+}
 
 .area:hover {
 	opacity: .8;
@@ -105,6 +149,7 @@ h2 {
 
 #small-mults-card {
     margin-right: 20px;
+    margin-top: 10px;
 }
 
 #small-mults {
@@ -112,7 +157,7 @@ h2 {
 }
 
 #small-mults-card {
-    margin-top: auto;
+    margin-top: 20px;
     margin-bottom: auto;
 
 }
