@@ -161,8 +161,6 @@ StackedAreaChart.prototype.updateVis = function() {
                 .duration(500)
                 .style("opacity", 0);
         })
-
-
         .merge(categories)
         .transition()
         .style("fill", function(d) {
@@ -234,18 +232,20 @@ StackedAreaChart.prototype.updateVis = function() {
         .attr('y', 42)
         .attr('style', 'font-weight: bold');
 
-    vis.svg.append('line')
+    vis.lineTime = vis.svg.append('line')
         .attr('x1', vis.x(parseDateYM('12/2016')))
         .attr('x2', vis.x(parseDateYM('12/2016')))
         .attr('y1', 0)
         .attr('y2', vis.height)
-        .attr('class', 'area-chart-time');
+        .attr('class', 'area-chart-time')
+    ;
 
-    vis.svg.append('text')
-        .attr('class', 'legendLabel')
+    vis.textTime = vis.svg.append('text')
         .text('Recreational Marajuana usage goes into effect.')
         .attr('x', 8 + vis.x(parseDateYM('12/2016')))
         .attr('y', 10)
+        .attr('class', 'area-chart-time-text legendLabel')
+
 
 
     // Call axis functions with the new domain
