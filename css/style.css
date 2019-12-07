@@ -659,8 +659,7 @@ alignment: center;
 }
 
 .face{
-        width : 130px;
-        height : 130px;
+    max-width : 15%;
 }
 #loader {
     position: absolute;
