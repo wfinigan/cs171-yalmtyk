@@ -116,6 +116,38 @@ h2 {
     padding: 20px;
     opacity: .8;
 }
+#subtitle-text {
+    position: absolute;
+    font-size: 20px;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    font-family: 'Cormorant Garamond', serif;
+    color: white;
+    font-style: italic;
+    background-color:  #67000d;
+    padding: 20px;
+    opacity: 0.9;
+}
+#subtitle-text-1 {
+    position: absolute;
+    font-size: 40px;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    font-family: 'Cormorant Garamond', serif;
+    color: white;
+    /*background-color: royalblue;*/
+    border: 10px white;
+    padding: 20px;
+    opacity: .8;
+    font-weight: 900;
+    background-color:  #67000d;
+    opacity: 0.9;
+}
+#subtitle-text-1:hover {
+    color: royalblue;
+}
 
 .section {
     background-color: white !important;
@@ -237,6 +269,7 @@ h2 {
 }
 #subtitle{
     margin-bottom: 40px;
+    font-size: 20px;
 }
 
 #headlines{
