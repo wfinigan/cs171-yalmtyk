@@ -23,13 +23,6 @@ var area_chart,
 
 var smallMults = [];
 
-$('#show-area-chart').on('click', function () {
-    $('#overlay').attr('class', 'overlay-hide')
-});
-
-$('#show-hint-area').on('click', function () {
-    $('#hint-text').attr("style", 'opacity: 1;')
-})
 
 function stackedAreaMults(data) {
     // https://appdividend.com/2019/04/11/how-to-get-distinct-values-from-array-in-javascript/
@@ -107,12 +100,6 @@ d3.csv("data/ClassDViolations.csv", function(data) {
     console.log(data)
     linegraph = new LineGraph('linegraph-chart', data)
 });
-
-$('#show-hint-area').on('click', function () {
-    stackedAreaChart.lineTime.attr("style", 'opacity: 1;')
-    stackedAreaChart.textTime.attr("style", 'opacity: 1;')
-
-})
 
 
 

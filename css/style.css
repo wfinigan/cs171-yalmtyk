@@ -1,52 +1,8 @@
-#overlay {
-    position: absolute;
-    height: 80%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    margin: 10px;
-}
-
-.overlay-hide {
-    opacity: 0;
-    pointer-events: none
-}
-
-#hint {
-    position: absolute;
-    top: 60%;
-    left: 25%;
-    margin: auto;
-    width: 30%;
-}
-
-#hint-text {
-    font-weight: lighter;
-    font-size: 9pt;
-    opacity: 0;
-}
-
-#show-area-chart {
-    margin: auto;
-    margin-top: 10px;
-}
-.overlay-content {
-    margin: auto;
-}
-
-.story {
-    margin-top: 10px;
-}
-
 .area-chart-time {
     stroke: #1b1e21;
     stroke-width: 4;
-    opacity: 0;
 }
 
-.area-chart-time-text {
-    opacity: 0;
-}
 
 .area:hover {
 	opacity: .8;
@@ -116,6 +72,38 @@ h2 {
     padding: 20px;
     opacity: .8;
 }
+#subtitle-text {
+    position: absolute;
+    font-size: 20px;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    font-family: 'Cormorant Garamond', serif;
+    color: white;
+    font-style: italic;
+    background-color:  #67000d;
+    padding: 20px;
+    opacity: 0.9;
+}
+#subtitle-text-1 {
+    position: absolute;
+    font-size: 40px;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    font-family: 'Cormorant Garamond', serif;
+    color: white;
+    /*background-color: royalblue;*/
+    border: 10px white;
+    padding: 20px;
+    opacity: .8;
+    font-weight: 900;
+    background-color:  #67000d;
+    opacity: 0.9;
+}
+#subtitle-text-1:hover {
+    color: royalblue;
+}
 
 .section {
     background-color: white !important;
@@ -149,7 +137,6 @@ h2 {
 
 #small-mults-card {
     margin-right: 20px;
-    margin-top: 10px;
 }
 
 #small-mults {
@@ -157,7 +144,7 @@ h2 {
 }
 
 #small-mults-card {
-    margin-top: 20px;
+    margin-top: auto;
     margin-bottom: auto;
 
 }
@@ -237,6 +224,7 @@ h2 {
 }
 #subtitle{
     margin-bottom: 40px;
+    font-size: 20px;
 }
 
 #headlines{
@@ -600,7 +588,3 @@ alignment: center;
     margin-left: 10%;
 }
 
-.face{
-        width : 130px;
-        height : 130px;
-}

@@ -14,13 +14,9 @@ MapPlot.prototype.initVis = function(){
 
     vis.margin = { top: 40, right: 60, bottom: 60, left: 60 };
 
-    vis.scale = (110000/ 953) * ($('#map').width());
-
     vis.width = $('#map').width() - vis.margin.left - vis.margin.right,
         vis.height = $('#map').width() / 2 - vis.margin.top - vis.margin.bottom;
 
-    console.log($('#map').width())
-    console.log(vis.scale)
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
         .attr("width", vis.width + vis.margin.left + vis.margin.right)
@@ -31,15 +27,11 @@ MapPlot.prototype.initVis = function(){
 
     vis.projection = d3.geoMercator()
         .center([-71.068797,42.342923])
-        .translate([vis.width / 2, vis.height / 3])
-        .scale(vis.scale);
+        .translate([vis.width / 2+200, vis.height / 3])
+        .scale(150000);
 
     vis.path = d3.geoPath()
         .projection(vis.projection);
-
-    vis.legendToolDiv = d3.select("body").append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
 
     vis.wrangleData();
 };
@@ -95,26 +87,30 @@ MapPlot.prototype.updateVis = function() {
         })
         .attr('x', 10)
         .attr('y', function(d, index) { return (legendBoxWidth + buffer) * index })
-        .on("mouseover", function(d) {
-            vis.legendToolDiv.transition()
-                .duration(200)
-                .style("opacity", .9);
-            vis.legendToolDiv.html(getDescriptions(d))
-                .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY - 28) + "px");
-        })
-        .on("mouseout", function(d) {
-            vis.legendToolDiv.transition()
-                .duration(500)
-                .style("opacity", 0);
-        })
 
     vis.svg.selectAll('.legendLabel')
         .data(vis.colorScale.domain())
         .enter()
         .append('text')
         .text(function (d) {
-            return toTitleCase(d)
+            if ( toTitleCase(d) == "Class A") {
+                return toTitleCase(d) + " (heroin, morphine, GHB, Special K)";
+            }
+            else if ( toTitleCase(d) == "Class B") {
+                return toTitleCase(d) + " (cocaine, LSD, oxycodone, ecstacy, methamphetamine)";
+            }
+            else if ( toTitleCase(d) == "Class C") {
+                return toTitleCase(d) + " (prescription tranquilizers and narcotics, hallucinogenic drugs)";
+            }
+            else if ( toTitleCase(d) == "Class D") {
+                return toTitleCase(d) + " (marijuana)";
+            }
+            else if ( toTitleCase(d) == "Class E") {
+                return toTitleCase(d) + " (prescription drugs containing weaker amounts of Opiates)";
+            }
+            else if ( toTitleCase(d) == "Other") {
+                return toTitleCase(d);
+            }
         })
         .attr('x', 35)
         .attr('y', function(d, index) { return 15 + (legendBoxWidth + buffer) * index })
@@ -122,27 +118,6 @@ MapPlot.prototype.updateVis = function() {
         .on('click', function (d) {
             filter(d, vis)
         })
-        .on("mouseover", function(d) {
-            vis.legendToolDiv.transition()
-                .duration(200)
-                .style("opacity", .9);
-            vis.legendToolDiv.html(getDescriptions(d))
-                .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY - 28) + "px");
-        })
-        .on("mouseout", function(d) {
-            vis.legendToolDiv.transition()
-                .duration(500)
-                .style("opacity", 0);
-        });
-
-    vis.svg.append('text')
-        .attr('class', 'legendLabel')
-        .text('Hover for description')
-        .attr('x', -5)
-        .attr('y', -5)
-        .attr('style', 'font-weight: bold');
-
 };
 
 // https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
