@@ -108,8 +108,14 @@ d3.csv("data/ClassDViolations.csv", function(data) {
   linegraph = new LineGraph('linegraph-chart', data)
 });
 
+var bigclock = new BigClock();
+var clock = new Clock();
+
+
 $('#show-hint-area').on('click', function() {
   stackedAreaChart.lineTime.attr("style", 'opacity: 1;')
   stackedAreaChart.textTime.attr("style", 'opacity: 1;')
 
 })
+
+
