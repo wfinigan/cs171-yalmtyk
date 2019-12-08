@@ -101,10 +101,6 @@ queue()
   .await(function(error, dataGeo, dataDrugs) {
     var areaChart = stackedAreaMults(dataDrugs);
     new MapPlot('map', dataGeo, dataDrugs, areaChart.colorScale);
-    // (5) Bind event handler
-    // when 'selectionChanged' is triggered, specified function is called
-
-
   });
 
 d3.csv("data/ClassDViolations.csv", function(data) {

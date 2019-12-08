@@ -1,5 +1,4 @@
-//2015 by hour of day
-//(ignore "count")
+//DATA
 //2016 by hour of day
 var dataset2 = [{
   count: 25,

@@ -24,7 +24,6 @@
   // SET EQUAL HEIGHTS
   function setEqualHeights(el, c) {
     const singleHeight = c;
-
   }
 
   // CHECK IF AN ELEMENT IS IN VIEWPORT
@@ -269,4 +268,4 @@
   }
 
 })();
-//}
+
