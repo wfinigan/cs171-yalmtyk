@@ -1,4 +1,5 @@
 (function() {
+  //code c/o https://webdesign.tutsplus.com/tutorials/building-a-horizontal-timeline-with-css-and-javascript--cms-28378
 
   // VARIABLES
   const timeline = document.querySelector(".timeline ol"),
@@ -81,7 +82,7 @@
         counter++;
       });
     }
-
+    //for the "show more":
     var action1 = 0;
     d3.select("#nov8").on("click", moreInfo);
 
